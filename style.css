@@ -28,6 +28,15 @@ body{
     color: #000;
 }
 
+#menu{
+display: block;
+cursor: pointer;
+}
+
+#menu:hover{
+color: blue;
+}
+
 #operations{
     text-align: right;
 }
