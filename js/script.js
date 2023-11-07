@@ -23,7 +23,7 @@ class Calculator {
     // processa todas as operações da calculadora
     processOperation(operation){
         // checa se o valor atual ta vazio
-        if(this.currentOperationText.innerText === "") {
+        if(this.currentOperationText.innerText === "" && operation !== "C") {
             // mudar operação
             if (this.previousOperationText.innerText !== "") {
                 this.ChangeOperation(operation);
@@ -56,8 +56,14 @@ class Calculator {
             case "DEL":
                 this.processDelOperator();
                 break;
-            case "CE ":
+            case "CE":
                 this.processClearCurrentOperation();
+                break;
+            case "C":
+                this.processClearOperation();
+                break;
+            case "=":
+                this.processEqualOperator();
                 break;
             default:
                 return;
@@ -104,6 +110,18 @@ class Calculator {
     // limpa a operação atual
     processClearCurrentOperation() {
         this.currentOperationText.innerText = "";
+    }
+
+    // limpa todas operações
+    processClearOperation() {
+        this.currentOperationText.innerText = "";
+        this.previousOperationText.innerText = "";
+    }
+
+    // processa igual
+    processEqualOperator() {
+        const operation = previousOperationText.innerText.split(" ")[1]
+        this.processClearOperation(operation);
     }
 }
 
