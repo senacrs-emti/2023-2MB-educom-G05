@@ -15,9 +15,8 @@ class Calculator {
         if(digit === "." && this.currentOperationText.innerText.includes(".")){
           return;
         }
-
-        this.currentOperation = digit
-        this.updateScreen()
+        this.currentOperation = digit;
+        this.updateScreen();
     }
 
     // processa todas as operações da calculadora
@@ -78,7 +77,16 @@ class Calculator {
         previous = null    
     ) {
         
+        console.log(this.currentOperation);
+
+
         if(operationValue === null) {
+            let valor = document.getElementById('current-operation').value;
+            valor = valor + this.currentOperation;
+            console.log(valor);
+            document.getElementById('current-operation').innerHTML = valor;
+
+            
             this.currentOperation.innerText += this.currentOperation;
         } else {
             // checar se o valor é zero, se for add o valor atual
@@ -127,6 +135,7 @@ class Calculator {
 
 const calc = new Calculator(previousOperationText, currentOperationText);
 
+// clique dos botoes
 buttons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
         const value = e.target.innerText;
