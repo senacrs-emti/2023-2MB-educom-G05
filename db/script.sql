@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31/10/2023 às 16:21
+-- Tempo de geração: 14/11/2023 às 14:16
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -38,7 +38,11 @@ CREATE TABLE `conteudo` (
 --
 
 INSERT INTO `conteudo` (`ConteudoID`, `Nome`, `Conceito`) VALUES
-(3, 'Cinemática', 'A cinemática é o ramo da física que se ocupa da descrição dos movimentos dos corpos, sem se preocupar com a análise de suas causas (dinâmica).');
+(3, 'Cinemática', 'A cinemática é o ramo da física que se ocupa da descrição dos movimentos dos corpos, sem se preocupar com a análise de suas causas (dinâmica).'),
+(4, 'Termometria', 'A termometria é a parte da termologia voltada para o estudo da temperatura, dos termômetros e das escalas termométricas.'),
+(5, 'Óptica', 'A óptica é o ramo da Física que estuda os fenômenos que têm como causa determinante a energia radiante.'),
+(6, 'Acústica', 'A acústica é o ramo da física associado ao estudo do som.'),
+(7, 'Eletrostática', 'A eletrostática é o ramo da eletricidade que estuda as propriedades e o comportamento de cargas elétricas em repouso.');
 
 -- --------------------------------------------------------
 
@@ -59,17 +63,15 @@ CREATE TABLE `formulas` (
 --
 
 INSERT INTO `formulas` (`FormulaID`, `FormulaComputacional`, `Nome`, `Estrutura`, `SubConteudoID`) VALUES
-(7, 'VM = D / T', 'Velocidade Média', 'VM = D ÷ T', 3),
-(8, 'P = PI + V * T', 'Função Horária do Deslocamento', 'P = PI + V x T', 4),
-(9, 'AM = V / T', 'Aceleração Média', 'AM = V ÷ T', 5),
-(10, 'V = VI + A * T', 'Função Horária da Velocidade', 'V = VI + A x T', 5),
-(11, 'P = PI + VI * T + 1/2 * A * T^2 ', 'Função horária da posição em função do tempo', 'P = PI + VI x T + 1 ÷ 2 x A x T²', 5),
-(12, 'V^2 = VI^2 + 2 * A * D', 'Equação de Torricelli', 'V² = VI² + 2 x A x D', 5),
-(13, 'V = VI ± G * T', 'Função Horária da Velocidade no Movimento Vertical', 'V = VI ± G x T', 6),
-(14, 'H = HI + VI * T ± 1/2 * G * T^2 * VI', 'Função horária da posição em função do tempo no movimento vertical', 'H = HI + VI x T ± 1 ÷ 2 x G x T² x VI', 6),
-(15, 'V^2 = VI^2 ± 2 * G * H', 'Equação de Torricelli no movimento vertical', 'V² = VI²  ± 2 x G x H', 6),
-(16, 'X = XI + VIX * T', 'Função Horária da Posição Horizontal', 'X = XI + VIX x T', 7),
-(17, 'PV = PVI + CVI * T + 1/2 * G * T^2', 'Função horária da posição vertical', 'PV = PVI + CVI x T + 1/2 x G x T²', 7);
+(7, 'VM = D / T', 'Velocidade Média', 'Vm = ∆d ÷ ∆t', 3),
+(8, 'P = PI + V * T', 'Função Horária do Deslocamento', 'S = So + V * ∆t', 4),
+(9, 'AM = V / T', 'Aceleração Média', 'Am = ∆v ÷ ∆t', 5),
+(10, 'V = VI + A * T', 'Função Horária da Velocidade', 'V = Vo + A x T', 5),
+(11, 'P = PI + VI * T + 1/2 * A * T^2 ', 'Função horária da posição em função do tempo', 'S = So + Vo x T + 1 ÷ 2 x A x T²', 5),
+(12, 'V^2 = VI^2 + 2 * A * D', 'Equação de Torricelli', 'V² = Vo² + 2 x A x ∆d', 5),
+(13, 'V = VI ± G * T', 'Função Horária da Velocidade no Movimento Vertical', 'V = Vo ± G x T', 6),
+(14, 'H = HI + VI * T ± 1/2 * G * T^2 * VI', 'Função horária da posição em função do tempo no movimento vertical', 'H = Ho + Vo x T ± 1 ÷ 2 x G x T² x Vo', 6),
+(15, 'V^2 = VI^2 ± 2 * G * H', 'Equação de Torricelli no movimento vertical', 'V² = Vo²  ± 2 x G x ∆h', 6);
 
 -- --------------------------------------------------------
 
@@ -92,7 +94,21 @@ INSERT INTO `subconteudo` (`SubConteudoID`, `Nome`, `ConteudoID`) VALUES
 (4, 'Movimento Uniforme', 3),
 (5, 'Movimento Uniformemente Variado', 3),
 (6, 'Movimento Vertical', 3),
-(7, 'Movimento Oblíquo', 3);
+(8, 'Escalas termométricas', 4),
+(9, 'Conversões entre escalas', 4),
+(10, 'Reflexão da luz', 5),
+(11, 'Espelhos', 5),
+(12, 'Refração da luz', 5),
+(13, 'Velocidade de propagação do som em meios gasosos', 6),
+(14, 'Intervalo acústico', 6),
+(15, 'Intensidade sonora', 6),
+(16, 'Tubos sonoros', 6),
+(17, 'Efeito Doppler', 6),
+(18, 'Cargas elétricas', 7),
+(19, 'Eletrização', 7),
+(20, 'Força de interação entre cargas', 7),
+(21, 'Campo elétrico', 7),
+(22, 'Potencial elétrico', 7);
 
 -- --------------------------------------------------------
 
@@ -104,58 +120,50 @@ CREATE TABLE `variaveis` (
   `VariaveisID` int(11) NOT NULL,
   `Variavel` varchar(45) DEFAULT NULL,
   `Conceito` varchar(250) DEFAULT NULL,
-  `FormulaID` int(11) NOT NULL DEFAULT 0
+  `FormulaID` int(11) NOT NULL DEFAULT 0,
+  `VariavelComputacional` varchar(45) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Despejando dados para a tabela `variaveis`
 --
 
-INSERT INTO `variaveis` (`VariaveisID`, `Variavel`, `Conceito`, `FormulaID`) VALUES
-(13, 'VM', 'Velocidade Média', 7),
-(14, 'D', 'Distnância Percorrida', 7),
-(15, 'T', 'Intervalo de Tempo', 7),
-(16, 'P', 'Posição', 8),
-(17, 'PI', 'Posição Inicial', 8),
-(18, 'V', 'Velocidade', 8),
-(19, 'T', 'Intervalo de Tempo', 8),
-(20, 'AM', 'Aceleração Média', 9),
-(21, 'V', 'Velocidade', 9),
-(22, 'T', 'Intervalo de Tempo', 9),
-(23, 'V', 'Velocidade', 10),
-(24, 'VI', 'Velocidade Inicial', 10),
-(25, 'A', 'Aceleração', 10),
-(26, 'T', 'Tempo', 10),
-(27, 'V', 'Velocidade', 11),
-(28, 'VI', 'Velocidade Inicial', 11),
-(29, 'A', 'Aceleração', 11),
-(30, 'T', 'Tempo', 11),
-(31, 'V', 'Velocidade', 12),
-(32, 'VI', 'Velocidade Inicial', 12),
-(33, 'A', 'Aceleração', 12),
-(34, 'D', 'Distância Percorrida', 12),
-(35, 'V', 'Velocidade', 13),
-(36, 'VI', 'Velocidade Inicial', 13),
-(37, 'G', 'Gravidade', 13),
-(38, 'T', 'Tempo', 13),
-(39, 'H', 'Altura', 14),
-(40, 'HI', 'Altura Inicial', 14),
-(41, 'VI', 'Velocidade Inicial', 14),
-(42, 'G', 'Gravidade', 14),
-(43, 'T', 'Tempo', 14),
-(44, 'V', 'Velocidade', 15),
-(45, 'VI', 'Velocidade Inicial', 15),
-(46, 'G', 'Gravidade', 15),
-(47, 'H', 'Altura', 15),
-(48, 'X', 'Posição Horizontal', 16),
-(49, 'XI', 'Posição Horizontal Inicial', 16),
-(50, 'VIX', 'Componente Horizontal do Vetor Velocidade Inicial', 16),
-(51, 'T', 'Tempo', 16),
-(52, 'PV', 'Posição Vertical', 17),
-(53, 'PVI', 'Posição Vertical Inicial', 17),
-(54, 'CVI', 'Componente Vertical do Vetor Velocidade Inicial', 17),
-(55, 'T', 'Tempo', 17),
-(56, 'G', 'Gravidade', 17);
+INSERT INTO `variaveis` (`VariaveisID`, `Variavel`, `Conceito`, `FormulaID`, `VariavelComputacional`) VALUES
+(13, 'Vm', 'Velocidade Média', 7, 'VM'),
+(14, '∆d', 'Distância Percorrida', 7, 'D'),
+(15, '∆t', 'Intervalo de Tempo', 7, 'T'),
+(16, 'S', 'Posição', 8, ''),
+(17, 'So', 'Posição Inicial', 8, ''),
+(18, 'V', 'Velocidade', 8, ''),
+(19, '∆t', 'Intervalo de Tempo', 8, ''),
+(20, 'Am', 'Aceleração Média', 9, ''),
+(21, 'V', 'Velocidade', 9, ''),
+(22, '∆t', 'Intervalo de Tempo', 9, ''),
+(23, 'V', 'Velocidade', 10, ''),
+(24, 'Vo', 'Velocidade Inicial', 10, ''),
+(25, 'A', 'Aceleração', 10, ''),
+(26, 'T', 'Tempo', 10, ''),
+(27, 'V', 'Velocidade', 11, ''),
+(28, 'Vo', 'Velocidade Inicial', 11, ''),
+(29, 'A', 'Aceleração', 11, ''),
+(30, 'T', 'Tempo', 11, ''),
+(31, 'V', 'Velocidade', 12, ''),
+(32, 'Vo', 'Velocidade Inicial', 12, ''),
+(33, 'A', 'Aceleração', 12, ''),
+(34, '∆d', 'Distância Percorrida', 12, ''),
+(35, 'V', 'Velocidade', 13, ''),
+(36, 'Vo', 'Velocidade Inicial', 13, ''),
+(37, 'G', 'Gravidade', 13, ''),
+(38, 'T', 'Tempo', 13, ''),
+(39, 'H', 'Altura', 14, ''),
+(40, 'Ho', 'Altura Inicial', 14, ''),
+(41, 'Vo', 'Velocidade Inicial', 14, ''),
+(42, 'G', 'Gravidade', 14, ''),
+(43, 'T', 'Tempo', 14, ''),
+(44, 'V', 'Velocidade', 15, ''),
+(45, 'Vo', 'Velocidade Inicial', 15, ''),
+(46, 'G', 'Gravidade', 15, ''),
+(47, 'H', 'Altura', 15, '');
 
 --
 -- Índices para tabelas despejadas
@@ -195,25 +203,25 @@ ALTER TABLE `variaveis`
 -- AUTO_INCREMENT de tabela `conteudo`
 --
 ALTER TABLE `conteudo`
-  MODIFY `ConteudoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ConteudoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `formulas`
 --
 ALTER TABLE `formulas`
-  MODIFY `FormulaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `FormulaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `subconteudo`
 --
 ALTER TABLE `subconteudo`
-  MODIFY `SubConteudoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `SubConteudoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `variaveis`
 --
 ALTER TABLE `variaveis`
-  MODIFY `VariaveisID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `VariaveisID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- Restrições para tabelas despejadas
