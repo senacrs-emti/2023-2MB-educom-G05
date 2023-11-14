@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/11/2023 às 14:16
+-- Tempo de geração: 14/11/2023 às 16:20
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -71,7 +71,24 @@ INSERT INTO `formulas` (`FormulaID`, `FormulaComputacional`, `Nome`, `Estrutura`
 (12, 'V^2 = VI^2 + 2 * A * D', 'Equação de Torricelli', 'V² = Vo² + 2 x A x ∆d', 5),
 (13, 'V = VI ± G * T', 'Função Horária da Velocidade no Movimento Vertical', 'V = Vo ± G x T', 6),
 (14, 'H = HI + VI * T ± 1/2 * G * T^2 * VI', 'Função horária da posição em função do tempo no movimento vertical', 'H = Ho + Vo x T ± 1 ÷ 2 x G x T² x Vo', 6),
-(15, 'V^2 = VI^2 ± 2 * G * H', 'Equação de Torricelli no movimento vertical', 'V² = Vo²  ± 2 x G x ∆h', 6);
+(15, 'V^2 = VI^2 ± 2 * G * H', 'Equação de Torricelli no movimento vertical', 'V² = Vo²  ± 2 x G x ∆h', 6),
+(19, '(C * 9 / 5) + 32', 'Conversão Celcius para  Fahrenheit', '(θ℃ x 9 ÷ 5) + 32', 9),
+(20, '(F - 32) * 5 / 9', 'Conversão Fahrenheit para Celsius', '(θ℉ - 32) x 5 ÷ 9', 9),
+(21, 'C + 273', 'Conversão Celsius para Kelvin', 'θc + 273', 9),
+(22, 'T - 273', 'Conversão Kelvin para Celsius', 'θt - 273', 9),
+(23, 'I = R', 'Lei da Refração', 'i = r', 10),
+(24, 'N = 360 / A - 1', 'Associação de espelhos planos', 'n = 360° ÷ a° - 1', 11),
+(25, '1/F = 1 / DI + 1 / DO', 'Equação de Gauss', '1 ÷ f = 1 ÷ Di + 1 ÷ Do', 11),
+(26, 'NM = CL / VL ', 'Índice de refração absoluto em um meio', 'Nm = C / Vm', 12),
+(27, 'N1 * sen(i) = N2 sen(r) ', 'Lei de Snell-Descartes', 'N1 x sen(i) = N2 x sen(r)', 12),
+(28, 'N2,1 = N2 / N1 = sen(i) / sen(r) = V1 / V2 = CO1 / CO2', 'Índice relativo de refração entre dois meios', 'N2,1 = N2 ÷ N1 = sen(i) ÷ sen(r) = V1 ÷ V2 = ⁁1 ÷ ⁁2', 12),
+(29, 'V = sqrt(K*T)', 'Velocidade de propagação', 'V = √k*T', 13),
+(30, 'V1² / T1 = V2² / T2', 'Velocidade de propagação em um mesmo gás com diferentes temperaturas', 'V1² ÷ T1 = V2² ÷ T2 ', 13),
+(31, 'I = F1 / F2', 'Intervalo entre dois sons', 'i = f1 / f2', 14),
+(32, 'I = E / A * T', 'Intensidade Sonora', 'I = E / A * ∆t', 15),
+(33, 'β = 10log * I/IO', 'Nível Sonoro', 'β = 10log x I ÷ Io', 15),
+(34, 'F = N * V / 2L', 'Tubos abertos', 'f = n x v ÷ 2l', 16),
+(35, 'F = I * V / 4l', 'Tubos fechados', 'f = i x v ÷ 4l', 16);
 
 -- --------------------------------------------------------
 
@@ -94,7 +111,6 @@ INSERT INTO `subconteudo` (`SubConteudoID`, `Nome`, `ConteudoID`) VALUES
 (4, 'Movimento Uniforme', 3),
 (5, 'Movimento Uniformemente Variado', 3),
 (6, 'Movimento Vertical', 3),
-(8, 'Escalas termométricas', 4),
 (9, 'Conversões entre escalas', 4),
 (10, 'Reflexão da luz', 5),
 (11, 'Espelhos', 5),
@@ -209,7 +225,7 @@ ALTER TABLE `conteudo`
 -- AUTO_INCREMENT de tabela `formulas`
 --
 ALTER TABLE `formulas`
-  MODIFY `FormulaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `FormulaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de tabela `subconteudo`
