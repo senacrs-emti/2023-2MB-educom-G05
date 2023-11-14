@@ -9,8 +9,18 @@
 </head>
 <body>
     <div id="calc">
-        <h3>Calculadora</h3>
-        <i id="menu" class="material-icons">menu</i>
+        <h2>Calculadora</h2>
+        <i id="menu" class="material-icons" onclick="clickMenu()">menu</i>
+        <menu id="itens">
+            <ul>
+                <li id="icone"><a href="#">Padrão</a></li>
+                <li id="icone"><a href="#">Cinemática</a></li>
+                <li id="icone"><a href="#">Termometria</a></li>
+                <li id="icone"><a href="#">Óptica</a></li>
+                <li id="icone"><a href="#">Acústica</a></li>
+                <li id="icone"><a href="#">Eletrostática</a></li>
+            </ul>
+        </menu>
         <div id="operations">
             <div id="previous-operation">0</div>
             <div id="current-operation">0</div>
@@ -37,7 +47,15 @@
         <button id="equal-btn" onclick="operations(5)">=</button>
     </div>
     </div>
-
+    <script>
+        function clickMenu(){
+            if(itens.style.display == 'block'){
+                itens.style.display = 'none'
+            } else {
+                itens.style.display = 'block'
+            }
+        }
+    </script>
     <script src="./js/script.js"></script>
 </body>
 </html>
