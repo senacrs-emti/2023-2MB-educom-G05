@@ -13,7 +13,6 @@
     align-items: center;
     justify-content: space-evenly;
 }
-
 p {
     color: white;
 }
@@ -71,7 +70,7 @@ h1{
 .right{
     padding: 20px;
     width: 50%;
-    max-width: 590px;
+    max-width: 590px;   
 }
 .left .wrapper-content{
     display: flex;
