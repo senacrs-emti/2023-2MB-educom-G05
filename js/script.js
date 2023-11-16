@@ -2,13 +2,13 @@
 const previousOperationText = document.querySelector("#previous-operation");
 const currentOperationText = document.querySelector("#current-operation");
 
-let num1 = 0;
-let num2 = 0;
+let num1 = '';
+let num2 = '';
 
 let isSetNum1 = false;
 let isSetNum2 = false;
 
-let operator = 0;
+let operator = '';
 
 function number(num) {
     num2 *= 10;
@@ -32,7 +32,7 @@ function executeOp() {
         switch (operator) {
             case 1: {
                 num1 += num2;
-                num2 = 0;
+                //num2 = 0;
                 isSetNum2 = false;
                 break;
             }
@@ -67,31 +67,42 @@ function charop() {
         case 2: return ' - ';
         case 3: return ' × ';
         case 4: return ' ÷ ';
-        default: return ' ';
+        default: return '';
     }
 }
 
 function updateprevious() {
-    if (!isSetNum1) {
-        previousOperationText.innerHTML = num2;
-        return;
-    }
 
     let char = charop();
 
-    if (char == ' ') return;
-
-    if (!isSetNum2) {
-        previousOperationText.innerHTML = num1 + char;
-        return;
+    if( char === ''){
+        console.log(previousOperationText.innerHTML);
+        console.log(currentOperationText.innerHTML);
+        
+    }else{
+        
+        if( currentOperationText.innerHTML != 0){
+            if (!isSetNum1) {
+                previousOperationText.innerHTML = num2;
+                return;
+            }
+            if (!isSetNum2) {
+                previousOperationText.innerHTML = num1 + char;
+                return;
+            }
+            
+        }
+        previousOperationText.innerHTML = num1 + char + num2;    
     }
-
     
-    previousOperationText.innerHTML = num1 + char + num2;
+
+
+
+
 }
 
 function cleaner(type) {
-
+    operator = ' ';
     switch (type) {
         case 'del':
             previousOperationText.innerHTML =  previousOperationText.innerText.slice(0, -1);
@@ -99,14 +110,19 @@ function cleaner(type) {
         break;
 
         case 'ce':
-        
+            previousOperationText.innerText = 0;
         break;
 
         case 'c':
+            previousOperationText.innerText = 0;
+            currentOperationText.innerText = 0;
+            
             break;
     }
-    previousOperationText.innerHTML =  previousOperationText.innerText.slice(0, -1);
-    currentOperationText.innerHTML =  currentOperationText.innerText.slice(0, -1);
+
+    updateprevious();
+
+    
 }
 
 function operations(op) {
@@ -115,10 +131,9 @@ function operations(op) {
     if (op <= 4){
         operator = op;
     }else {
-        operator = 0;
+        operator = '';
     }
     updateprevious();
 
-    //alert("Num1: " + num1 + " --- Num2: " + num2 + " --- Operator: " + operator);
 }
 
