@@ -33,21 +33,23 @@ width: 23px;
 height: 22.5px;
 display: block;
 cursor: pointer;
-background-color: white;
 }
 
 #menu:hover{
     color: blue;
-    background-color: white;
 }
 
-#icone:hover{
+.icone:hover{
     background-color: gray;
+}
+
+.icone#vel{
+    background-color: #000;
 }
 
 #itens{
     display: none;
-    width: 175px;
+    width: 261px;
     cursor: pointer;
     position: absolute;
     margin-top: 50px;
