@@ -38,3 +38,42 @@ a {
 body{
     background-color: #1A4A5A;
 }
+.retangulo{
+    border-radius: 50px;
+    background-color: #D9D9D9;
+}
+#right{
+    width: 30%;
+}
+#esquerdo{
+    width: 30%;
+}
+.retangulo{
+    width: 30%;
+    border-radius: 50px;
+    background-color: #D9D9D9;
+}
+
+#calc{
+    width: 30%;
+    height: 500px;
+    background-color: red;
+    display: inline-block;
+}
+
+.wrapper-calc{
+    width: 100%;
+}
+
+.wrapper-calc .container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: stretch;
+}
+.text{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: black;
+}
