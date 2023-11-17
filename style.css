@@ -43,8 +43,29 @@ cursor: pointer;
     background-color: gray;
 }
 
-.icone#vel{
-    background-color: #000;
+.icone#vel:hover{
+    background-color: gray;
+}
+
+
+.icone#cine:hover{
+    background-color: white;
+}
+
+.icone#conv:hover{
+    background-color: gray;
+}
+
+.icone#termo:hover{
+    background-color: white;
+}
+
+.icone#ref:hover{
+    background-color: gray;
+}
+
+.icone#optica:hover{
+    background-color: white;
 }
 
 #itens{
@@ -64,6 +85,13 @@ cursor: pointer;
     display: block;
     padding: 5px;
     text-decoration: none;
+}
+#itens li ul li:nth-child(-n+3) {
+    display: none;
+}
+
+#itens li:hover ul li:nth-child(-n+3) {
+    display: block;
 }
 
 #operations{
