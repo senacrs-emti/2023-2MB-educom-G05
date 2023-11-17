@@ -36,6 +36,7 @@
                 <li class="icone" id="eletro"><a href="#">Eletrostática</a></li>
             </ul>
         </menu>
+<!--
         <div id="operations">
             <div id="previous-operation">0</div>
             <div id="current-operation">0</div>
@@ -60,6 +61,41 @@
         <button class="number" onclick="number(0)">0</button>
         <button class="number">.</button>
         <button id="equal-btn" onclick="operations(5)">=</button>
+    </div> -->
+    <div class="calculadora">
+        
+        <p id="resultado"></p>
+        <table>
+            <tr>
+                <td><button class="btnTop" onclick="clean()">C</button></td>
+                <td><button class="btnTop" onclick="back()"><</button></td>
+                <td><button class="btnTop" onclick="insert('/')">÷</button></td>
+                <td><button class="btnMath" onclick="insert('*')">×</button></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><button class="btnNum" onclick="insert('7')">7</button></td>
+                <td><button class="btnNum" onclick="insert('8')">8</button></td>
+                <td><button class="btnNum" onclick="insert('9')">9</button></td>
+                <td><button class="btnMath" onclick="insert('-')">-</button></td>             
+            </tr>
+            <tr>
+                <td><button class="btnNum" onclick="insert('4')">4</button></td>
+                <td><button class="btnNum" onclick="insert('5')">5</button></td>
+                <td><button class="btnNum" onclick="insert('6')">6</button></td>
+                <td><button class="btnMath" onclick="insert('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button class="btnNum" onclick="insert('1')">1</button></td>
+                <td><button class="btnNum" onclick="insert('2')">2</button></td>
+                <td><button class="btnNum" onclick="insert('3')">3</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button class="btnNum" style="width: 106px;" onclick="insert('0')">0</button></td>
+                <td><button class="btnNum" onclick="insert('.')">.</button></td>
+                <td ><button class="btnMath"  onclick="calcular()">=</button></td>
+            </tr>
+        </table>
     </div>
     </div>
     <script>
