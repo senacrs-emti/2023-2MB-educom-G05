@@ -62,13 +62,18 @@
         <button class="number">.</button>
         <button id="equal-btn" onclick="operations(5)">=</button>
     </div> -->
+    <div id="operations">
+        <div id="previous-operation">0</div>
+        <div id="current-operation">0</div>
+    </div>
+    <div id="buttons-container">
     <div class="calculadora">
         
         <p id="resultado"></p>
         <table>
             <tr>
                 <td><button class="btnTop" onclick="clean()">C</button></td>
-                <td><button class="btnTop" onclick="back()"><</button></td>
+                <td><button class="btnTop" onclick="back()">CE</button></td>
                 <td><button class="btnTop" onclick="insert('/')">÷</button></td>
                 <td><button class="btnMath" onclick="insert('*')">×</button></td>
             </tr>
