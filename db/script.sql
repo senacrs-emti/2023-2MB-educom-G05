@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17/11/2023 às 13:44
+-- Tempo de geração: 22/11/2023 às 16:07
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -159,7 +159,76 @@ CREATE TABLE `variaveis` (
 --
 
 INSERT INTO `variaveis` (`VariaveisID`, `Variavel`, `Conceito`, `FormulaID`, `VariavelComputacional`) VALUES
-(0, 'Vm', 'Velocidade Média', 7, 'VM');
+(1, 'Vm', 'Velocidade Média', 7, 'VM'),
+(2, '∆d', 'Distância Percorrida', 7, 'D'),
+(3, '∆t', 'Intervalo de Tempo', 7, 'T'),
+(4, 'S', 'Posição', 8, 'P'),
+(5, 'So', 'Posição Inicial', 8, 'PI'),
+(6, 'V', 'Velocidade', 8, 'V'),
+(7, '∆t', 'Intervalo Tempo', 8, 'T'),
+(8, 'Am', 'Aceleração Média', 9, 'AM'),
+(9, '∆v', 'Variação da Velocidade', 9, 'V'),
+(10, '∆t', 'Intervalo de Tempo', 9, 'T'),
+(11, 'V', 'Velocidade', 10, 'V'),
+(12, 'Vo', 'Velocidade Inicial', 10, 'VI'),
+(13, 'A', 'Aceleração', 10, 'A'),
+(14, 'T', 'Tempo', 10, 'T'),
+(15, 'S', 'Posição', 11, 'P'),
+(16, 'So', 'Posição Inicial', 11, 'PI'),
+(17, 'Vo', 'Velocidade Inicial', 11, 'VI'),
+(18, 'T', 'Tempo', 11, 'T'),
+(19, 'A', 'Aceleração', 11, 'A'),
+(20, 'V', 'Velocidade', 12, 'V'),
+(21, 'Vo', 'Velocidade Inicial', 12, 'VI'),
+(22, 'A', 'Aceleração', 12, 'A'),
+(23, '∆d', 'Distância Percorrida', 12, 'D'),
+(24, 'V', 'Velocidade', 13, 'V'),
+(25, 'Vo', 'Velocidade Inicial', 13, 'VI'),
+(26, 'G', 'Gravidade ', 13, 'G'),
+(27, 'T', 'Tempo', 13, 'T'),
+(28, 'H', 'Altura', 14, 'H'),
+(29, 'Ho', 'Altura Inicial', 14, 'HI'),
+(30, 'Vo', 'Velocidade Inicial', 14, 'VI'),
+(31, 'T', 'Tempo', 14, 'T'),
+(32, 'G', 'Gravidade', 14, 'G'),
+(33, 'V', 'Velocidade', 15, 'V'),
+(34, 'Vo', 'Velocidade Inicial', 15, 'VI'),
+(35, 'G', 'Gravidade', 15, 'G'),
+(36, '∆h', 'Variação de Altura', 15, 'H'),
+(37, 'θ℃ ', 'Grau Celsius', 19, 'C'),
+(38, 'θ℉', 'Grau Fahrenheit', 20, 'F'),
+(39, 'θc', 'Temperatura em Graus Celsius', 21, 'C'),
+(40, 'θt', 'Temperatura Absoluta em Kelvin', 22, 'T'),
+(41, ' i', 'Ângulo de Incidência', 23, 'I'),
+(42, 'r', 'Ângulo de Reflexo', 23, 'R'),
+(43, 'n', 'Número de Imagens', 24, 'N'),
+(44, 'a°', 'Ângulo de Abertura Entre os Espelhos', 24, 'A'),
+(45, 'f', 'Distância Focal', 25, 'F'),
+(46, 'Di', 'Distância da Imagem', 25, 'DI'),
+(47, 'Do', 'Distância do Objeto', 25, 'DO'),
+(48, 'Nm', 'Índice de Refração do Meio', 26, 'NM'),
+(49, 'C', 'Velocidade da Luz no Vácuo', 26, 'CL'),
+(50, 'Vm', 'Velocidade da Luz do Meio', 26, 'VL'),
+(51, ' N1', 'Índice de Refração do Meio 1', 27, 'N1'),
+(52, 'i', 'Ângulo de Incidência ', 27, 'i'),
+(53, 'N2', 'Índice de Refração do Meio 2', 27, 'N2'),
+(54, 'r', 'Ângulo de Refração', 27, 'r'),
+(55, 'N2,1', 'Índice de Refração Relativo entre os Meios 1 e 2', 28, 'N2,1'),
+(56, 'N2', 'Índice de Refração do Meio 2', 28, 'N2'),
+(57, 'N1', 'Índice de Refração do Meio 1', 28, 'N1'),
+(58, 'i', 'Ângulo de Incidência', 28, 'i'),
+(59, 'r', 'Ângulo de Refração', 28, 'r'),
+(60, 'V1', 'Velocidade da Luz do Meio 1', 28, 'V1'),
+(61, 'V2', 'Velocidade da Luz do Meio 2', 28, 'V2'),
+(62, '⁁1', 'Comprimento de Onda no Meio 1', 28, 'CO1'),
+(63, '⁁2', 'Comprimento da Onda no Meio 2', 28, 'CO2'),
+(64, 'V', 'Velocidade de Propagação', 29, 'V'),
+(65, 'k', 'Constante de Proporcionalidade', 29, 'K'),
+(66, 'T', 'Temperatura Absoluta', 29, 'T'),
+(67, 'V1', 'Velocidade à Temperatura 1', 30, 'V1'),
+(68, 'T1', 'Temperatura Absoluta', 30, 'T1'),
+(69, 'V2', 'Velocidade à Temperatura 2', 30, 'V2'),
+(70, 'T2', 'Temperatura Absoluta', 30, 'T2');
 
 --
 -- Índices para tabelas despejadas
@@ -212,6 +281,12 @@ ALTER TABLE `formulas`
 --
 ALTER TABLE `subconteudo`
   MODIFY `SubConteudoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de tabela `variaveis`
+--
+ALTER TABLE `variaveis`
+  MODIFY `VariaveisID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
