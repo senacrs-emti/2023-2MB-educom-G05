@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22/11/2023 às 16:07
+-- Tempo de geração: 23/11/2023 às 13:25
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -92,17 +92,12 @@ INSERT INTO `formulas` (`FormulaID`, `FormulaComputacional`, `Nome`, `Estrutura`
 (36, 'FOB = (V ± VOB /  V ± VF) * FF', 'Frequência sob efeito Doppler', 'Fob = (v ± Vob ÷ v ± Vf) x Ff', 17),
 (37, 'E = 1,6 * 10^-19', 'Carga elétrica elementar', 'e = 1,6 x 10⁻¹⁹', 18),
 (38, 'Q = N * E', 'Carga elétrica', 'Q = n x e', 18),
-(39, 'QR = Q1 + Q2 + ... QN / N', 'Eletrização por contato', 'Qr = Q1 + Q2 + ... Qn ÷ n', 19),
 (40, 'F = K * Q1 * Q2 / D²', 'Lei de Coulomb', 'F = k x Q1 x Q2 ÷ d²', 20),
-(41, 'K = 9 * 10⁹ * N * M² / C²', 'Constante elétrica no vácuo', 'k = 9 x 10⁹ x N x m² ÷ C²', 20),
 (42, 'E = F / Q', 'Intensidade do campo elétrico', 'E = F ÷ q', 21),
-(43, 'E = k * Q / D²', 'Intensidade do campo elétrico', 'E = k x Q ÷ d²', 21),
-(44, 'EP = K * QQ / D ', 'Energia pontecial elétrica', 'Ep = k x Qq ÷ d', 22),
+(44, 'EP = K * Q * q / D ', 'Energia pontecial elétrica', 'Ep = k x Q x q ÷ d', 22),
 (45, 'V = EP / Q', 'Potencial elétrico', 'v = Ep ÷ q', 22),
-(46, 'V = K * Q / D', 'Potencial elétrico', 'v = k x Q ÷ d', 22),
 (47, 'TAB = Q * (VA - VB)', 'Trabalho de uma força elétrica', 'Ta,b = q x (Va - Vb)', 22),
-(48, 'U = VB - VA', 'Diferença de potencial', 'U = Vb - Va', 22),
-(49, 'U = K * Q / DAB', 'Diferença de potencial', 'U = k x Q ÷ ∆Da,b', 22);
+(48, 'U = VB - VA', 'Diferença de potencial', 'U = Vb - Va', 22);
 
 -- --------------------------------------------------------
 
@@ -228,7 +223,57 @@ INSERT INTO `variaveis` (`VariaveisID`, `Variavel`, `Conceito`, `FormulaID`, `Va
 (67, 'V1', 'Velocidade à Temperatura 1', 30, 'V1'),
 (68, 'T1', 'Temperatura Absoluta', 30, 'T1'),
 (69, 'V2', 'Velocidade à Temperatura 2', 30, 'V2'),
-(70, 'T2', 'Temperatura Absoluta', 30, 'T2');
+(70, 'T2', 'Temperatura Absoluta', 30, 'T2'),
+(71, 'i', 'Intervalo', 31, 'I'),
+(72, 'f1', 'Frequência do Som', 31, 'F1'),
+(73, 'f2', 'Frequência do outro Som', 31, 'F2'),
+(74, 'I', 'Intensidade Sonora', 32, 'I'),
+(75, 'E', 'Energia Utilizada', 32, 'E'),
+(76, 'A', 'Área', 32, 'A'),
+(77, '∆t', 'Intervalo de Tempo', 32, 'T'),
+(78, 'β', 'Nível Sonoro (em dB)', 33, 'β'),
+(79, 'I', 'Intensidade Sonora', 33, 'I'),
+(80, 'Io', 'Intensidade LSA', 33, 'IO'),
+(81, 'f', 'Frequência', 34, 'F'),
+(82, 'n', 'Sequência de Números Naturais', 34, 'N'),
+(83, 'v', 'Velocidade', 34, 'V'),
+(84, 'l', 'Comprimento do Tubo', 34, 'L'),
+(85, 'f', 'Frequência', 35, 'F'),
+(86, 'i', 'Sequência de Números', 35, 'I'),
+(87, 'v', 'Velocidade', 35, 'V'),
+(88, 'l', 'Comprimento do Tubo', 35, 'L'),
+(89, 'Fob', 'Frequência Percebida pelo Observador', 36, 'FOB'),
+(90, 'v', 'Velocidade da Propagação Real da Onda', 36, 'V'),
+(91, 'Vob', 'Velocidade do Observador', 36, 'VOB'),
+(92, 'Vf', 'Velocidade da Fonte', 36, 'VF'),
+(93, 'Ff', 'Frequência Emitida pela Fonte', 36, 'FF'),
+(94, 'e', 'Carga Elétrica Elementar', 37, 'E'),
+(95, 'Q', 'Carga Elétrica', 38, 'Q'),
+(96, 'n', 'Número de Cargas Elementares', 38, 'N'),
+(97, 'e', 'Carga Elétrica Elementar', 38, 'E'),
+(98, 'F', 'Força', 40, 'F'),
+(99, 'k', 'Constante Elétrica no Vácuo', 40, 'K'),
+(100, 'Q1', 'Carga de Interação 1', 40, 'Q1'),
+(101, 'Q2', 'Carga de Interação 2', 40, 'Q2'),
+(102, 'd', 'Distância entre as Cargas', 40, 'D'),
+(103, 'E', 'Intensidade do Campo Elétrico', 42, 'E'),
+(104, 'F', 'Força', 42, 'F'),
+(105, 'q', 'Carga de Teste ', 42, 'Q'),
+(106, 'Ep', 'Energia Potencial Elétrica', 44, 'EP'),
+(107, 'k', 'Constante Elétrica no Vácuo', 44, 'K'),
+(108, 'Q', 'Carga Geradora do Campo', 44, 'Q'),
+(109, 'q', 'Carga de Teste', 44, 'q'),
+(110, 'd', 'Distância entre as Cargas', 44, 'D'),
+(111, 'v', 'Potencial Elétrico', 45, 'V'),
+(112, 'Ep', 'Energia Potencial Elétrica', 45, 'EP'),
+(113, 'q', 'Carga de Teste', 45, 'Q'),
+(114, 'Ta,b', 'Trabalho entre a e b', 47, 'TAB'),
+(115, 'q', 'Carga de Teste', 47, 'Q'),
+(116, 'Va', 'Potencial Elétrico em a', 47, 'VA'),
+(117, 'Vb', 'Potencial Elétrico em b', 47, 'VB'),
+(118, 'U', 'Diferença de Potencial', 48, 'U'),
+(119, 'Vb', 'Potencial Elétrico em b', 48, 'VB'),
+(120, 'Va', 'Potencial Elétrico em a', 48, 'VA');
 
 --
 -- Índices para tabelas despejadas
@@ -286,7 +331,7 @@ ALTER TABLE `subconteudo`
 -- AUTO_INCREMENT de tabela `variaveis`
 --
 ALTER TABLE `variaveis`
-  MODIFY `VariaveisID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `VariaveisID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
