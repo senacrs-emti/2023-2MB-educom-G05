@@ -51,7 +51,7 @@ $formulas = $_GET['formulas'];
 
         ?>
 
-
+        <input type="hidden" id="Computacional" value="<?php echo $dados['FormulaComputacional'];?>">
         <div id="previous-operation"><?php echo $dados['Estrutura'];?></div>
         <div id="current-operation"></div>
       </div>
@@ -74,7 +74,7 @@ $formulas = $_GET['formulas'];
         <button>+</button>
         <button class="number">0</button>
         <button class="number">,</button>
-        <button id="equal-btn">=</button>
+        <button onclick="calcula()" id="equal-btn">=</button>
       </div>
     </div>
   </body>
@@ -98,16 +98,21 @@ $formulas = $_GET['formulas'];
 
         $resultado = mysqli_query($conexao, $sql);
         while ($value = mysqli_fetch_array($resultado, MYSQLI_ASSOC)) {    
-          ?>
-            <input type="number">
-            <p><?php echo $value['Variavel'] . ' = ' . $value['Conceito'];?></p>      
-          <?php
+          ?> 
+          <p><?php echo $value['Variavel'] . ' = ' . $value['Conceito'];?></p>
+          <?php 
+          if ($value['Resultado'] == 0 ) {
+          ?> 
+            <input type="number" id ="<?php echo $value['Variavel']; ?>" class ="Variaveis"> 
+          <?php } else {
+            echo '<hr>';
+          } 
         }
         ?>
          
         </div>
     </div>
 </div>
-
+<script src="./js/calc.js"></script>
 </body>
 </html>

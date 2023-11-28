@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/11/2023 às 13:25
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Tempo de geração: 29-Nov-2023 às 00:09
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,17 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `conteudo`
+-- Estrutura da tabela `conteudo`
 --
 
 CREATE TABLE `conteudo` (
   `ConteudoID` int(11) NOT NULL,
   `Nome` varchar(100) DEFAULT NULL,
   `Conceito` longtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `conteudo`
+-- Extraindo dados da tabela `conteudo`
 --
 
 INSERT INTO `conteudo` (`ConteudoID`, `Nome`, `Conceito`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `conteudo` (`ConteudoID`, `Nome`, `Conceito`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `formulas`
+-- Estrutura da tabela `formulas`
 --
 
 CREATE TABLE `formulas` (
@@ -56,10 +56,10 @@ CREATE TABLE `formulas` (
   `Nome` varchar(100) DEFAULT NULL,
   `Estrutura` varchar(150) DEFAULT NULL,
   `SubConteudoID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `formulas`
+-- Extraindo dados da tabela `formulas`
 --
 
 INSERT INTO `formulas` (`FormulaID`, `FormulaComputacional`, `Nome`, `Estrutura`, `SubConteudoID`) VALUES
@@ -102,17 +102,17 @@ INSERT INTO `formulas` (`FormulaID`, `FormulaComputacional`, `Nome`, `Estrutura`
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `subconteudo`
+-- Estrutura da tabela `subconteudo`
 --
 
 CREATE TABLE `subconteudo` (
   `SubConteudoID` int(11) NOT NULL,
   `Nome` varchar(100) DEFAULT NULL,
   `ConteudoID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `subconteudo`
+-- Extraindo dados da tabela `subconteudo`
 --
 
 INSERT INTO `subconteudo` (`SubConteudoID`, `Nome`, `ConteudoID`) VALUES
@@ -138,7 +138,7 @@ INSERT INTO `subconteudo` (`SubConteudoID`, `Nome`, `ConteudoID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `variaveis`
+-- Estrutura da tabela `variaveis`
 --
 
 CREATE TABLE `variaveis` (
@@ -146,167 +146,168 @@ CREATE TABLE `variaveis` (
   `Variavel` varchar(45) DEFAULT NULL,
   `Conceito` varchar(250) DEFAULT NULL,
   `FormulaID` int(11) NOT NULL DEFAULT 0,
-  `VariavelComputacional` varchar(45) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `VariavelComputacional` varchar(45) NOT NULL DEFAULT '',
+  `Resultado` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `variaveis`
+-- Extraindo dados da tabela `variaveis`
 --
 
-INSERT INTO `variaveis` (`VariaveisID`, `Variavel`, `Conceito`, `FormulaID`, `VariavelComputacional`) VALUES
-(1, 'Vm', 'Velocidade Média', 7, 'VM'),
-(2, '∆d', 'Distância Percorrida', 7, 'D'),
-(3, '∆t', 'Intervalo de Tempo', 7, 'T'),
-(4, 'S', 'Posição', 8, 'P'),
-(5, 'So', 'Posição Inicial', 8, 'PI'),
-(6, 'V', 'Velocidade', 8, 'V'),
-(7, '∆t', 'Intervalo Tempo', 8, 'T'),
-(8, 'Am', 'Aceleração Média', 9, 'AM'),
-(9, '∆v', 'Variação da Velocidade', 9, 'V'),
-(10, '∆t', 'Intervalo de Tempo', 9, 'T'),
-(11, 'V', 'Velocidade', 10, 'V'),
-(12, 'Vo', 'Velocidade Inicial', 10, 'VI'),
-(13, 'A', 'Aceleração', 10, 'A'),
-(14, 'T', 'Tempo', 10, 'T'),
-(15, 'S', 'Posição', 11, 'P'),
-(16, 'So', 'Posição Inicial', 11, 'PI'),
-(17, 'Vo', 'Velocidade Inicial', 11, 'VI'),
-(18, 'T', 'Tempo', 11, 'T'),
-(19, 'A', 'Aceleração', 11, 'A'),
-(20, 'V', 'Velocidade', 12, 'V'),
-(21, 'Vo', 'Velocidade Inicial', 12, 'VI'),
-(22, 'A', 'Aceleração', 12, 'A'),
-(23, '∆d', 'Distância Percorrida', 12, 'D'),
-(24, 'V', 'Velocidade', 13, 'V'),
-(25, 'Vo', 'Velocidade Inicial', 13, 'VI'),
-(26, 'G', 'Gravidade ', 13, 'G'),
-(27, 'T', 'Tempo', 13, 'T'),
-(28, 'H', 'Altura', 14, 'H'),
-(29, 'Ho', 'Altura Inicial', 14, 'HI'),
-(30, 'Vo', 'Velocidade Inicial', 14, 'VI'),
-(31, 'T', 'Tempo', 14, 'T'),
-(32, 'G', 'Gravidade', 14, 'G'),
-(33, 'V', 'Velocidade', 15, 'V'),
-(34, 'Vo', 'Velocidade Inicial', 15, 'VI'),
-(35, 'G', 'Gravidade', 15, 'G'),
-(36, '∆h', 'Variação de Altura', 15, 'H'),
-(37, 'θ℃ ', 'Grau Celsius', 19, 'C'),
-(38, 'θ℉', 'Grau Fahrenheit', 20, 'F'),
-(39, 'θc', 'Temperatura em Graus Celsius', 21, 'C'),
-(40, 'θt', 'Temperatura Absoluta em Kelvin', 22, 'T'),
-(41, ' i', 'Ângulo de Incidência', 23, 'I'),
-(42, 'r', 'Ângulo de Reflexo', 23, 'R'),
-(43, 'n', 'Número de Imagens', 24, 'N'),
-(44, 'a°', 'Ângulo de Abertura Entre os Espelhos', 24, 'A'),
-(45, 'f', 'Distância Focal', 25, 'F'),
-(46, 'Di', 'Distância da Imagem', 25, 'DI'),
-(47, 'Do', 'Distância do Objeto', 25, 'DO'),
-(48, 'Nm', 'Índice de Refração do Meio', 26, 'NM'),
-(49, 'C', 'Velocidade da Luz no Vácuo', 26, 'CL'),
-(50, 'Vm', 'Velocidade da Luz do Meio', 26, 'VL'),
-(51, ' N1', 'Índice de Refração do Meio 1', 27, 'N1'),
-(52, 'i', 'Ângulo de Incidência ', 27, 'i'),
-(53, 'N2', 'Índice de Refração do Meio 2', 27, 'N2'),
-(54, 'r', 'Ângulo de Refração', 27, 'r'),
-(55, 'N2,1', 'Índice de Refração Relativo entre os Meios 1 e 2', 28, 'N2,1'),
-(56, 'N2', 'Índice de Refração do Meio 2', 28, 'N2'),
-(57, 'N1', 'Índice de Refração do Meio 1', 28, 'N1'),
-(58, 'i', 'Ângulo de Incidência', 28, 'i'),
-(59, 'r', 'Ângulo de Refração', 28, 'r'),
-(60, 'V1', 'Velocidade da Luz do Meio 1', 28, 'V1'),
-(61, 'V2', 'Velocidade da Luz do Meio 2', 28, 'V2'),
-(62, '⁁1', 'Comprimento de Onda no Meio 1', 28, 'CO1'),
-(63, '⁁2', 'Comprimento da Onda no Meio 2', 28, 'CO2'),
-(64, 'V', 'Velocidade de Propagação', 29, 'V'),
-(65, 'k', 'Constante de Proporcionalidade', 29, 'K'),
-(66, 'T', 'Temperatura Absoluta', 29, 'T'),
-(67, 'V1', 'Velocidade à Temperatura 1', 30, 'V1'),
-(68, 'T1', 'Temperatura Absoluta', 30, 'T1'),
-(69, 'V2', 'Velocidade à Temperatura 2', 30, 'V2'),
-(70, 'T2', 'Temperatura Absoluta', 30, 'T2'),
-(71, 'i', 'Intervalo', 31, 'I'),
-(72, 'f1', 'Frequência do Som', 31, 'F1'),
-(73, 'f2', 'Frequência do outro Som', 31, 'F2'),
-(74, 'I', 'Intensidade Sonora', 32, 'I'),
-(75, 'E', 'Energia Utilizada', 32, 'E'),
-(76, 'A', 'Área', 32, 'A'),
-(77, '∆t', 'Intervalo de Tempo', 32, 'T'),
-(78, 'β', 'Nível Sonoro (em dB)', 33, 'β'),
-(79, 'I', 'Intensidade Sonora', 33, 'I'),
-(80, 'Io', 'Intensidade LSA', 33, 'IO'),
-(81, 'f', 'Frequência', 34, 'F'),
-(82, 'n', 'Sequência de Números Naturais', 34, 'N'),
-(83, 'v', 'Velocidade', 34, 'V'),
-(84, 'l', 'Comprimento do Tubo', 34, 'L'),
-(85, 'f', 'Frequência', 35, 'F'),
-(86, 'i', 'Sequência de Números', 35, 'I'),
-(87, 'v', 'Velocidade', 35, 'V'),
-(88, 'l', 'Comprimento do Tubo', 35, 'L'),
-(89, 'Fob', 'Frequência Percebida pelo Observador', 36, 'FOB'),
-(90, 'v', 'Velocidade da Propagação Real da Onda', 36, 'V'),
-(91, 'Vob', 'Velocidade do Observador', 36, 'VOB'),
-(92, 'Vf', 'Velocidade da Fonte', 36, 'VF'),
-(93, 'Ff', 'Frequência Emitida pela Fonte', 36, 'FF'),
-(94, 'e', 'Carga Elétrica Elementar', 37, 'E'),
-(95, 'Q', 'Carga Elétrica', 38, 'Q'),
-(96, 'n', 'Número de Cargas Elementares', 38, 'N'),
-(97, 'e', 'Carga Elétrica Elementar', 38, 'E'),
-(98, 'F', 'Força', 40, 'F'),
-(99, 'k', 'Constante Elétrica no Vácuo', 40, 'K'),
-(100, 'Q1', 'Carga de Interação 1', 40, 'Q1'),
-(101, 'Q2', 'Carga de Interação 2', 40, 'Q2'),
-(102, 'd', 'Distância entre as Cargas', 40, 'D'),
-(103, 'E', 'Intensidade do Campo Elétrico', 42, 'E'),
-(104, 'F', 'Força', 42, 'F'),
-(105, 'q', 'Carga de Teste ', 42, 'Q'),
-(106, 'Ep', 'Energia Potencial Elétrica', 44, 'EP'),
-(107, 'k', 'Constante Elétrica no Vácuo', 44, 'K'),
-(108, 'Q', 'Carga Geradora do Campo', 44, 'Q'),
-(109, 'q', 'Carga de Teste', 44, 'q'),
-(110, 'd', 'Distância entre as Cargas', 44, 'D'),
-(111, 'v', 'Potencial Elétrico', 45, 'V'),
-(112, 'Ep', 'Energia Potencial Elétrica', 45, 'EP'),
-(113, 'q', 'Carga de Teste', 45, 'Q'),
-(114, 'Ta,b', 'Trabalho entre a e b', 47, 'TAB'),
-(115, 'q', 'Carga de Teste', 47, 'Q'),
-(116, 'Va', 'Potencial Elétrico em a', 47, 'VA'),
-(117, 'Vb', 'Potencial Elétrico em b', 47, 'VB'),
-(118, 'U', 'Diferença de Potencial', 48, 'U'),
-(119, 'Vb', 'Potencial Elétrico em b', 48, 'VB'),
-(120, 'Va', 'Potencial Elétrico em a', 48, 'VA');
+INSERT INTO `variaveis` (`VariaveisID`, `Variavel`, `Conceito`, `FormulaID`, `VariavelComputacional`, `Resultado`) VALUES
+(1, 'Vm', 'Velocidade Média', 7, 'VM', 1),
+(2, '∆d', 'Distância Percorrida', 7, 'D', 0),
+(3, '∆t', 'Intervalo de Tempo', 7, 'T', 0),
+(4, 'S', 'Posição', 8, 'P', 0),
+(5, 'So', 'Posição Inicial', 8, 'PI', 0),
+(6, 'V', 'Velocidade', 8, 'V', 0),
+(7, '∆t', 'Intervalo Tempo', 8, 'T', 0),
+(8, 'Am', 'Aceleração Média', 9, 'AM', 0),
+(9, '∆v', 'Variação da Velocidade', 9, 'V', 0),
+(10, '∆t', 'Intervalo de Tempo', 9, 'T', 0),
+(11, 'V', 'Velocidade', 10, 'V', 0),
+(12, 'Vo', 'Velocidade Inicial', 10, 'VI', 0),
+(13, 'A', 'Aceleração', 10, 'A', 0),
+(14, 'T', 'Tempo', 10, 'T', 0),
+(15, 'S', 'Posição', 11, 'P', 0),
+(16, 'So', 'Posição Inicial', 11, 'PI', 0),
+(17, 'Vo', 'Velocidade Inicial', 11, 'VI', 0),
+(18, 'T', 'Tempo', 11, 'T', 0),
+(19, 'A', 'Aceleração', 11, 'A', 0),
+(20, 'V', 'Velocidade', 12, 'V', 0),
+(21, 'Vo', 'Velocidade Inicial', 12, 'VI', 0),
+(22, 'A', 'Aceleração', 12, 'A', 0),
+(23, '∆d', 'Distância Percorrida', 12, 'D', 0),
+(24, 'V', 'Velocidade', 13, 'V', 0),
+(25, 'Vo', 'Velocidade Inicial', 13, 'VI', 0),
+(26, 'G', 'Gravidade ', 13, 'G', 0),
+(27, 'T', 'Tempo', 13, 'T', 0),
+(28, 'H', 'Altura', 14, 'H', 0),
+(29, 'Ho', 'Altura Inicial', 14, 'HI', 0),
+(30, 'Vo', 'Velocidade Inicial', 14, 'VI', 0),
+(31, 'T', 'Tempo', 14, 'T', 0),
+(32, 'G', 'Gravidade', 14, 'G', 0),
+(33, 'V', 'Velocidade', 15, 'V', 0),
+(34, 'Vo', 'Velocidade Inicial', 15, 'VI', 0),
+(35, 'G', 'Gravidade', 15, 'G', 0),
+(36, '∆h', 'Variação de Altura', 15, 'H', 0),
+(37, 'θ℃ ', 'Grau Celsius', 19, 'C', 0),
+(38, 'θ℉', 'Grau Fahrenheit', 20, 'F', 0),
+(39, 'θc', 'Temperatura em Graus Celsius', 21, 'C', 0),
+(40, 'θt', 'Temperatura Absoluta em Kelvin', 22, 'T', 0),
+(41, ' i', 'Ângulo de Incidência', 23, 'I', 0),
+(42, 'r', 'Ângulo de Reflexo', 23, 'R', 0),
+(43, 'n', 'Número de Imagens', 24, 'N', 0),
+(44, 'a°', 'Ângulo de Abertura Entre os Espelhos', 24, 'A', 0),
+(45, 'f', 'Distância Focal', 25, 'F', 0),
+(46, 'Di', 'Distância da Imagem', 25, 'DI', 0),
+(47, 'Do', 'Distância do Objeto', 25, 'DO', 0),
+(48, 'Nm', 'Índice de Refração do Meio', 26, 'NM', 0),
+(49, 'C', 'Velocidade da Luz no Vácuo', 26, 'CL', 0),
+(50, 'Vm', 'Velocidade da Luz do Meio', 26, 'VL', 0),
+(51, ' N1', 'Índice de Refração do Meio 1', 27, 'N1', 0),
+(52, 'i', 'Ângulo de Incidência ', 27, 'i', 0),
+(53, 'N2', 'Índice de Refração do Meio 2', 27, 'N2', 0),
+(54, 'r', 'Ângulo de Refração', 27, 'r', 0),
+(55, 'N2,1', 'Índice de Refração Relativo entre os Meios 1 e 2', 28, 'N2,1', 0),
+(56, 'N2', 'Índice de Refração do Meio 2', 28, 'N2', 0),
+(57, 'N1', 'Índice de Refração do Meio 1', 28, 'N1', 0),
+(58, 'i', 'Ângulo de Incidência', 28, 'i', 0),
+(59, 'r', 'Ângulo de Refração', 28, 'r', 0),
+(60, 'V1', 'Velocidade da Luz do Meio 1', 28, 'V1', 0),
+(61, 'V2', 'Velocidade da Luz do Meio 2', 28, 'V2', 0),
+(62, '⁁1', 'Comprimento de Onda no Meio 1', 28, 'CO1', 0),
+(63, '⁁2', 'Comprimento da Onda no Meio 2', 28, 'CO2', 0),
+(64, 'V', 'Velocidade de Propagação', 29, 'V', 0),
+(65, 'k', 'Constante de Proporcionalidade', 29, 'K', 0),
+(66, 'T', 'Temperatura Absoluta', 29, 'T', 0),
+(67, 'V1', 'Velocidade à Temperatura 1', 30, 'V1', 0),
+(68, 'T1', 'Temperatura Absoluta', 30, 'T1', 0),
+(69, 'V2', 'Velocidade à Temperatura 2', 30, 'V2', 0),
+(70, 'T2', 'Temperatura Absoluta', 30, 'T2', 0),
+(71, 'i', 'Intervalo', 31, 'I', 0),
+(72, 'f1', 'Frequência do Som', 31, 'F1', 0),
+(73, 'f2', 'Frequência do outro Som', 31, 'F2', 0),
+(74, 'I', 'Intensidade Sonora', 32, 'I', 0),
+(75, 'E', 'Energia Utilizada', 32, 'E', 0),
+(76, 'A', 'Área', 32, 'A', 0),
+(77, '∆t', 'Intervalo de Tempo', 32, 'T', 0),
+(78, 'β', 'Nível Sonoro (em dB)', 33, 'β', 0),
+(79, 'I', 'Intensidade Sonora', 33, 'I', 0),
+(80, 'Io', 'Intensidade LSA', 33, 'IO', 0),
+(81, 'f', 'Frequência', 34, 'F', 0),
+(82, 'n', 'Sequência de Números Naturais', 34, 'N', 0),
+(83, 'v', 'Velocidade', 34, 'V', 0),
+(84, 'l', 'Comprimento do Tubo', 34, 'L', 0),
+(85, 'f', 'Frequência', 35, 'F', 0),
+(86, 'i', 'Sequência de Números', 35, 'I', 0),
+(87, 'v', 'Velocidade', 35, 'V', 0),
+(88, 'l', 'Comprimento do Tubo', 35, 'L', 0),
+(89, 'Fob', 'Frequência Percebida pelo Observador', 36, 'FOB', 0),
+(90, 'v', 'Velocidade da Propagação Real da Onda', 36, 'V', 0),
+(91, 'Vob', 'Velocidade do Observador', 36, 'VOB', 0),
+(92, 'Vf', 'Velocidade da Fonte', 36, 'VF', 0),
+(93, 'Ff', 'Frequência Emitida pela Fonte', 36, 'FF', 0),
+(94, 'e', 'Carga Elétrica Elementar', 37, 'E', 0),
+(95, 'Q', 'Carga Elétrica', 38, 'Q', 0),
+(96, 'n', 'Número de Cargas Elementares', 38, 'N', 0),
+(97, 'e', 'Carga Elétrica Elementar', 38, 'E', 0),
+(98, 'F', 'Força', 40, 'F', 0),
+(99, 'k', 'Constante Elétrica no Vácuo', 40, 'K', 0),
+(100, 'Q1', 'Carga de Interação 1', 40, 'Q1', 0),
+(101, 'Q2', 'Carga de Interação 2', 40, 'Q2', 0),
+(102, 'd', 'Distância entre as Cargas', 40, 'D', 0),
+(103, 'E', 'Intensidade do Campo Elétrico', 42, 'E', 0),
+(104, 'F', 'Força', 42, 'F', 0),
+(105, 'q', 'Carga de Teste ', 42, 'Q', 0),
+(106, 'Ep', 'Energia Potencial Elétrica', 44, 'EP', 0),
+(107, 'k', 'Constante Elétrica no Vácuo', 44, 'K', 0),
+(108, 'Q', 'Carga Geradora do Campo', 44, 'Q', 0),
+(109, 'q', 'Carga de Teste', 44, 'q', 0),
+(110, 'd', 'Distância entre as Cargas', 44, 'D', 0),
+(111, 'v', 'Potencial Elétrico', 45, 'V', 0),
+(112, 'Ep', 'Energia Potencial Elétrica', 45, 'EP', 0),
+(113, 'q', 'Carga de Teste', 45, 'Q', 0),
+(114, 'Ta,b', 'Trabalho entre a e b', 47, 'TAB', 0),
+(115, 'q', 'Carga de Teste', 47, 'Q', 0),
+(116, 'Va', 'Potencial Elétrico em a', 47, 'VA', 0),
+(117, 'Vb', 'Potencial Elétrico em b', 47, 'VB', 0),
+(118, 'U', 'Diferença de Potencial', 48, 'U', 0),
+(119, 'Vb', 'Potencial Elétrico em b', 48, 'VB', 0),
+(120, 'Va', 'Potencial Elétrico em a', 48, 'VA', 0);
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `conteudo`
+-- Índices para tabela `conteudo`
 --
 ALTER TABLE `conteudo`
   ADD PRIMARY KEY (`ConteudoID`);
 
 --
--- Índices de tabela `formulas`
+-- Índices para tabela `formulas`
 --
 ALTER TABLE `formulas`
   ADD PRIMARY KEY (`FormulaID`);
 
 --
--- Índices de tabela `subconteudo`
+-- Índices para tabela `subconteudo`
 --
 ALTER TABLE `subconteudo`
   ADD PRIMARY KEY (`SubConteudoID`),
   ADD KEY `fk_SubConteudo_Conteudo1` (`ConteudoID`);
 
 --
--- Índices de tabela `variaveis`
+-- Índices para tabela `variaveis`
 --
 ALTER TABLE `variaveis`
   ADD PRIMARY KEY (`VariaveisID`),
   ADD KEY `fk_Variaveis_Formulas` (`FormulaID`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
