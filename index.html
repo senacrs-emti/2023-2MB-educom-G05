@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="shortcut icon" href="img/logo_resized.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>FisiForm</title>  
 </head>
 <body>
@@ -34,8 +35,33 @@
         <title>JS Calc</title>
         <link rel="stylesheet" href="css/styles.css" />
         <script src="js/script.js" defer></script>
-        </head>
+    </head>
       <h3>Calculadora</h3>
+
+      <i id="menu" class="material-icons" onclick="clickMenu()">menu</i>
+      <menu id="itens">
+        <ul>
+            <li class="icone" id="padrao"><a href="file:///C:/xampp/htdocs/2023-2MB-educom-G05/index.html#">Padrão</a></li>
+            <li class="icone" id="cine"><a href="">Cinemática</a></li>
+            <li class="icone" id="termo"><a href="#">Termometria</a></li>
+            <li class="icone" id="optica"><a href="#">Óptica</a></li>
+            <li class="icone" id="acustica"><a href="#">Acústica</a></li>
+            <li class="icone" id="eletro"><a href="#">Eletrostática</a></li>
+        </ul>
+    </menu>
+
+    <script>
+        function clickMenu(){
+            if(itens.style.display == 'block'){
+                itens.style.display = 'none'
+            } else {
+                itens.style.display = 'block'
+            }
+        }
+    </script>
+    <script src="./js/script.js"></script>
+
+    
       <div id="operations">
         <div id="previous-operation"></div>
         <div id="current-operation"></div>

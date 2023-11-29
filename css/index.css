@@ -88,6 +88,7 @@ body{
   font-weight: 300;
   color: #666;
 }
+
 #operations {
   text-align: right;
 }
@@ -133,3 +134,61 @@ body{
   background-color: #3a91d8;
 }
 
+/*CSS DO MENU*/
+
+#menu{
+  width: 23px;
+  height: 22.5px;
+  display: block;
+  cursor: pointer;
+}
+
+#menu:hover{
+  color: blue;
+}
+
+.icone:hover{
+  background-color: gray;
+}
+
+.icone#cine:hover{
+  background-color: gray;
+}
+
+.icone#termo:hover{
+  background-color: gray;
+}
+
+.icone#optica:hover{
+  background-color: gray;
+}
+
+.icone#acustica:hover{
+  background-color: gray;
+}
+
+.icone#eletro:hover{
+  background-color: gray;
+}
+
+#itens{
+  display: none;
+  width: 300px;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 60px;
+  background-color: black;
+} 
+
+#itens > ul{
+  list-style-type: none;
+}
+
+#itens > ul > li a{
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+}
+#itens li ul li:nth-child(-n+3) {
+  display: none;
+}
