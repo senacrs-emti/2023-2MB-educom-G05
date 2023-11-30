@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30/11/2023 às 03:28
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Tempo de geração: 29-Nov-2023 às 00:09
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `fisiform`
 --
+CREATE DATABASE IF NOT EXISTS `fisiform` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `fisiform`;
 
 -- --------------------------------------------------------
 
@@ -146,134 +148,135 @@ CREATE TABLE `variaveis` (
   `Variavel` varchar(45) DEFAULT NULL,
   `Conceito` varchar(250) DEFAULT NULL,
   `FormulaID` int(11) NOT NULL DEFAULT 0,
-  `VariavelComputacional` varchar(45) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `VariavelComputacional` varchar(45) NOT NULL DEFAULT '',
+  `Resultado` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Despejando dados para a tabela `variaveis`
 --
 
-INSERT INTO `variaveis` (`VariaveisID`, `Variavel`, `Conceito`, `FormulaID`, `VariavelComputacional`) VALUES
-(1, 'Vm', 'Velocidade Média', 7, 'VM'),
-(2, '∆d', 'Distância Percorrida', 7, 'D'),
-(3, '∆t', 'Intervalo de Tempo', 7, 'T'),
-(4, 'S', 'Posição', 8, 'P'),
-(5, 'So', 'Posição Inicial', 8, 'PI'),
-(6, 'V', 'Velocidade', 8, 'V'),
-(7, '∆t', 'Intervalo Tempo', 8, 'T'),
-(8, 'Am', 'Aceleração Média', 9, 'AM'),
-(9, '∆v', 'Variação da Velocidade', 9, 'V'),
-(10, '∆t', 'Intervalo de Tempo', 9, 'T'),
-(11, 'V', 'Velocidade', 10, 'V'),
-(12, 'Vo', 'Velocidade Inicial', 10, 'VI'),
-(13, 'A', 'Aceleração', 10, 'A'),
-(14, 'T', 'Tempo', 10, 'T'),
-(15, 'S', 'Posição', 11, 'P'),
-(16, 'So', 'Posição Inicial', 11, 'PI'),
-(17, 'Vo', 'Velocidade Inicial', 11, 'VI'),
-(18, 'T', 'Tempo', 11, 'T'),
-(19, 'A', 'Aceleração', 11, 'A'),
-(20, 'V', 'Velocidade', 12, 'V'),
-(21, 'Vo', 'Velocidade Inicial', 12, 'VI'),
-(22, 'A', 'Aceleração', 12, 'A'),
-(23, '∆d', 'Distância Percorrida', 12, 'D'),
-(24, 'V', 'Velocidade', 13, 'V'),
-(25, 'Vo', 'Velocidade Inicial', 13, 'VI'),
-(26, 'G', 'Gravidade ', 13, 'G'),
-(27, 'T', 'Tempo', 13, 'T'),
-(28, 'H', 'Altura', 14, 'H'),
-(29, 'Ho', 'Altura Inicial', 14, 'HI'),
-(30, 'Vo', 'Velocidade Inicial', 14, 'VI'),
-(31, 'T', 'Tempo', 14, 'T'),
-(32, 'G', 'Gravidade', 14, 'G'),
-(33, 'V', 'Velocidade', 15, 'V'),
-(34, 'Vo', 'Velocidade Inicial', 15, 'VI'),
-(35, 'G', 'Gravidade', 15, 'G'),
-(36, '∆h', 'Variação de Altura', 15, 'H'),
-(37, 'θ℃ ', 'Grau Celsius', 19, 'C'),
-(38, 'θ℉', 'Grau Fahrenheit', 20, 'F'),
-(39, 'θc', 'Temperatura em Graus Celsius', 21, 'C'),
-(40, 'θt', 'Temperatura Absoluta em Kelvin', 22, 'T'),
-(41, ' i', 'Ângulo de Incidência', 23, 'I'),
-(42, 'r', 'Ângulo de Reflexo', 23, 'R'),
-(43, 'n', 'Número de Imagens', 24, 'N'),
-(44, 'a°', 'Ângulo de Abertura Entre os Espelhos', 24, 'A'),
-(45, 'f', 'Distância Focal', 25, 'F'),
-(46, 'Di', 'Distância da Imagem', 25, 'DI'),
-(47, 'Do', 'Distância do Objeto', 25, 'DO'),
-(48, 'Nm', 'Índice de Refração do Meio', 26, 'NM'),
-(49, 'C', 'Velocidade da Luz no Vácuo', 26, 'CL'),
-(50, 'Vm', 'Velocidade da Luz do Meio', 26, 'VL'),
-(51, ' N1', 'Índice de Refração do Meio 1', 27, 'N1'),
-(52, 'i', 'Ângulo de Incidência ', 27, 'i'),
-(53, 'N2', 'Índice de Refração do Meio 2', 27, 'N2'),
-(54, 'r', 'Ângulo de Refração', 27, 'r'),
-(55, 'N2,1', 'Índice de Refração Relativo entre os Meios 1 e 2', 28, 'N2,1'),
-(56, 'N2', 'Índice de Refração do Meio 2', 28, 'N2'),
-(57, 'N1', 'Índice de Refração do Meio 1', 28, 'N1'),
-(58, 'i', 'Ângulo de Incidência', 28, 'i'),
-(59, 'r', 'Ângulo de Refração', 28, 'r'),
-(60, 'V1', 'Velocidade da Luz do Meio 1', 28, 'V1'),
-(61, 'V2', 'Velocidade da Luz do Meio 2', 28, 'V2'),
-(62, '⁁1', 'Comprimento de Onda no Meio 1', 28, 'CO1'),
-(63, '⁁2', 'Comprimento da Onda no Meio 2', 28, 'CO2'),
-(64, 'V', 'Velocidade de Propagação', 29, 'V'),
-(65, 'k', 'Constante de Proporcionalidade', 29, 'K'),
-(66, 'T', 'Temperatura Absoluta', 29, 'T'),
-(67, 'V1', 'Velocidade à Temperatura 1', 30, 'V1'),
-(68, 'T1', 'Temperatura Absoluta', 30, 'T1'),
-(69, 'V2', 'Velocidade à Temperatura 2', 30, 'V2'),
-(70, 'T2', 'Temperatura Absoluta', 30, 'T2'),
-(71, 'i', 'Intervalo', 31, 'I'),
-(72, 'f1', 'Frequência do Som', 31, 'F1'),
-(73, 'f2', 'Frequência do outro Som', 31, 'F2'),
-(74, 'I', 'Intensidade Sonora', 32, 'I'),
-(75, 'E', 'Energia Utilizada', 32, 'E'),
-(76, 'A', 'Área', 32, 'A'),
-(77, '∆t', 'Intervalo de Tempo', 32, 'T'),
-(78, 'β', 'Nível Sonoro (em dB)', 33, 'β'),
-(79, 'I', 'Intensidade Sonora', 33, 'I'),
-(80, 'Io', 'Intensidade LSA', 33, 'IO'),
-(81, 'f', 'Frequência', 34, 'F'),
-(82, 'n', 'Sequência de Números Naturais', 34, 'N'),
-(83, 'v', 'Velocidade', 34, 'V'),
-(84, 'l', 'Comprimento do Tubo', 34, 'L'),
-(85, 'f', 'Frequência', 35, 'F'),
-(86, 'i', 'Sequência de Números', 35, 'I'),
-(87, 'v', 'Velocidade', 35, 'V'),
-(88, 'l', 'Comprimento do Tubo', 35, 'L'),
-(89, 'Fob', 'Frequência Percebida pelo Observador', 36, 'FOB'),
-(90, 'v', 'Velocidade da Propagação Real da Onda', 36, 'V'),
-(91, 'Vob', 'Velocidade do Observador', 36, 'VOB'),
-(92, 'Vf', 'Velocidade da Fonte', 36, 'VF'),
-(93, 'Ff', 'Frequência Emitida pela Fonte', 36, 'FF'),
-(94, 'e', 'Carga Elétrica Elementar', 37, 'E'),
-(95, 'Q', 'Carga Elétrica', 38, 'Q'),
-(96, 'n', 'Número de Cargas Elementares', 38, 'N'),
-(97, 'e', 'Carga Elétrica Elementar', 38, 'E'),
-(98, 'F', 'Força', 40, 'F'),
-(99, 'k', 'Constante Elétrica no Vácuo', 40, 'K'),
-(100, 'Q1', 'Carga de Interação 1', 40, 'Q1'),
-(101, 'Q2', 'Carga de Interação 2', 40, 'Q2'),
-(102, 'd', 'Distância entre as Cargas', 40, 'D'),
-(103, 'E', 'Intensidade do Campo Elétrico', 42, 'E'),
-(104, 'F', 'Força', 42, 'F'),
-(105, 'q', 'Carga de Teste ', 42, 'Q'),
-(106, 'Ep', 'Energia Potencial Elétrica', 44, 'EP'),
-(107, 'k', 'Constante Elétrica no Vácuo', 44, 'K'),
-(108, 'Q', 'Carga Geradora do Campo', 44, 'Q'),
-(109, 'q', 'Carga de Teste', 44, 'q'),
-(110, 'd', 'Distância entre as Cargas', 44, 'D'),
-(111, 'v', 'Potencial Elétrico', 45, 'V'),
-(112, 'Ep', 'Energia Potencial Elétrica', 45, 'EP'),
-(113, 'q', 'Carga de Teste', 45, 'Q'),
-(114, 'Ta,b', 'Trabalho entre a e b', 47, 'TAB'),
-(115, 'q', 'Carga de Teste', 47, 'Q'),
-(116, 'Va', 'Potencial Elétrico em a', 47, 'VA'),
-(117, 'Vb', 'Potencial Elétrico em b', 47, 'VB'),
-(118, 'U', 'Diferença de Potencial', 48, 'U'),
-(119, 'Vb', 'Potencial Elétrico em b', 48, 'VB'),
-(120, 'Va', 'Potencial Elétrico em a', 48, 'VA');
+INSERT INTO `variaveis` (`VariaveisID`, `Variavel`, `Conceito`, `FormulaID`, `VariavelComputacional`, `Resultado`) VALUES
+(1, 'Vm', 'Velocidade Média', 7, 'VM', 1),
+(2, '∆d', 'Distância Percorrida', 7, 'D', 0),
+(3, '∆t', 'Intervalo de Tempo', 7, 'T', 0),
+(4, 'S', 'Posição', 8, 'P', 0),
+(5, 'So', 'Posição Inicial', 8, 'PI', 0),
+(6, 'V', 'Velocidade', 8, 'V', 0),
+(7, '∆t', 'Intervalo Tempo', 8, 'T', 0),
+(8, 'Am', 'Aceleração Média', 9, 'AM', 0),
+(9, '∆v', 'Variação da Velocidade', 9, 'V', 0),
+(10, '∆t', 'Intervalo de Tempo', 9, 'T', 0),
+(11, 'V', 'Velocidade', 10, 'V', 0),
+(12, 'Vo', 'Velocidade Inicial', 10, 'VI', 0),
+(13, 'A', 'Aceleração', 10, 'A', 0),
+(14, 'T', 'Tempo', 10, 'T', 0),
+(15, 'S', 'Posição', 11, 'P', 0),
+(16, 'So', 'Posição Inicial', 11, 'PI', 0),
+(17, 'Vo', 'Velocidade Inicial', 11, 'VI', 0),
+(18, 'T', 'Tempo', 11, 'T', 0),
+(19, 'A', 'Aceleração', 11, 'A', 0),
+(20, 'V', 'Velocidade', 12, 'V', 0),
+(21, 'Vo', 'Velocidade Inicial', 12, 'VI', 0),
+(22, 'A', 'Aceleração', 12, 'A', 0),
+(23, '∆d', 'Distância Percorrida', 12, 'D', 0),
+(24, 'V', 'Velocidade', 13, 'V', 0),
+(25, 'Vo', 'Velocidade Inicial', 13, 'VI', 0),
+(26, 'G', 'Gravidade ', 13, 'G', 0),
+(27, 'T', 'Tempo', 13, 'T', 0),
+(28, 'H', 'Altura', 14, 'H', 0),
+(29, 'Ho', 'Altura Inicial', 14, 'HI', 0),
+(30, 'Vo', 'Velocidade Inicial', 14, 'VI', 0),
+(31, 'T', 'Tempo', 14, 'T', 0),
+(32, 'G', 'Gravidade', 14, 'G', 0),
+(33, 'V', 'Velocidade', 15, 'V', 0),
+(34, 'Vo', 'Velocidade Inicial', 15, 'VI', 0),
+(35, 'G', 'Gravidade', 15, 'G', 0),
+(36, '∆h', 'Variação de Altura', 15, 'H', 0),
+(37, 'θ℃ ', 'Grau Celsius', 19, 'C', 0),
+(38, 'θ℉', 'Grau Fahrenheit', 20, 'F', 0),
+(39, 'θc', 'Temperatura em Graus Celsius', 21, 'C', 0),
+(40, 'θt', 'Temperatura Absoluta em Kelvin', 22, 'T', 0),
+(41, ' i', 'Ângulo de Incidência', 23, 'I', 0),
+(42, 'r', 'Ângulo de Reflexo', 23, 'R', 0),
+(43, 'n', 'Número de Imagens', 24, 'N', 0),
+(44, 'a°', 'Ângulo de Abertura Entre os Espelhos', 24, 'A', 0),
+(45, 'f', 'Distância Focal', 25, 'F', 0),
+(46, 'Di', 'Distância da Imagem', 25, 'DI', 0),
+(47, 'Do', 'Distância do Objeto', 25, 'DO', 0),
+(48, 'Nm', 'Índice de Refração do Meio', 26, 'NM', 0),
+(49, 'C', 'Velocidade da Luz no Vácuo', 26, 'CL', 0),
+(50, 'Vm', 'Velocidade da Luz do Meio', 26, 'VL', 0),
+(51, ' N1', 'Índice de Refração do Meio 1', 27, 'N1', 0),
+(52, 'i', 'Ângulo de Incidência ', 27, 'i', 0),
+(53, 'N2', 'Índice de Refração do Meio 2', 27, 'N2', 0),
+(54, 'r', 'Ângulo de Refração', 27, 'r', 0),
+(55, 'N2,1', 'Índice de Refração Relativo entre os Meios 1 e 2', 28, 'N2,1', 0),
+(56, 'N2', 'Índice de Refração do Meio 2', 28, 'N2', 0),
+(57, 'N1', 'Índice de Refração do Meio 1', 28, 'N1', 0),
+(58, 'i', 'Ângulo de Incidência', 28, 'i', 0),
+(59, 'r', 'Ângulo de Refração', 28, 'r', 0),
+(60, 'V1', 'Velocidade da Luz do Meio 1', 28, 'V1', 0),
+(61, 'V2', 'Velocidade da Luz do Meio 2', 28, 'V2', 0),
+(62, '⁁1', 'Comprimento de Onda no Meio 1', 28, 'CO1', 0),
+(63, '⁁2', 'Comprimento da Onda no Meio 2', 28, 'CO2', 0),
+(64, 'V', 'Velocidade de Propagação', 29, 'V', 0),
+(65, 'k', 'Constante de Proporcionalidade', 29, 'K', 0),
+(66, 'T', 'Temperatura Absoluta', 29, 'T', 0),
+(67, 'V1', 'Velocidade à Temperatura 1', 30, 'V1', 0),
+(68, 'T1', 'Temperatura Absoluta', 30, 'T1', 0),
+(69, 'V2', 'Velocidade à Temperatura 2', 30, 'V2', 0),
+(70, 'T2', 'Temperatura Absoluta', 30, 'T2', 0),
+(71, 'i', 'Intervalo', 31, 'I', 0),
+(72, 'f1', 'Frequência do Som', 31, 'F1', 0),
+(73, 'f2', 'Frequência do outro Som', 31, 'F2', 0),
+(74, 'I', 'Intensidade Sonora', 32, 'I', 0),
+(75, 'E', 'Energia Utilizada', 32, 'E', 0),
+(76, 'A', 'Área', 32, 'A', 0),
+(77, '∆t', 'Intervalo de Tempo', 32, 'T', 0),
+(78, 'β', 'Nível Sonoro (em dB)', 33, 'β', 0),
+(79, 'I', 'Intensidade Sonora', 33, 'I', 0),
+(80, 'Io', 'Intensidade LSA', 33, 'IO', 0),
+(81, 'f', 'Frequência', 34, 'F', 0),
+(82, 'n', 'Sequência de Números Naturais', 34, 'N', 0),
+(83, 'v', 'Velocidade', 34, 'V', 0),
+(84, 'l', 'Comprimento do Tubo', 34, 'L', 0),
+(85, 'f', 'Frequência', 35, 'F', 0),
+(86, 'i', 'Sequência de Números', 35, 'I', 0),
+(87, 'v', 'Velocidade', 35, 'V', 0),
+(88, 'l', 'Comprimento do Tubo', 35, 'L', 0),
+(89, 'Fob', 'Frequência Percebida pelo Observador', 36, 'FOB', 0),
+(90, 'v', 'Velocidade da Propagação Real da Onda', 36, 'V', 0),
+(91, 'Vob', 'Velocidade do Observador', 36, 'VOB', 0),
+(92, 'Vf', 'Velocidade da Fonte', 36, 'VF', 0),
+(93, 'Ff', 'Frequência Emitida pela Fonte', 36, 'FF', 0),
+(94, 'e', 'Carga Elétrica Elementar', 37, 'E', 0),
+(95, 'Q', 'Carga Elétrica', 38, 'Q', 0),
+(96, 'n', 'Número de Cargas Elementares', 38, 'N', 0),
+(97, 'e', 'Carga Elétrica Elementar', 38, 'E', 0),
+(98, 'F', 'Força', 40, 'F', 0),
+(99, 'k', 'Constante Elétrica no Vácuo', 40, 'K', 0),
+(100, 'Q1', 'Carga de Interação 1', 40, 'Q1', 0),
+(101, 'Q2', 'Carga de Interação 2', 40, 'Q2', 0),
+(102, 'd', 'Distância entre as Cargas', 40, 'D', 0),
+(103, 'E', 'Intensidade do Campo Elétrico', 42, 'E', 0),
+(104, 'F', 'Força', 42, 'F', 0),
+(105, 'q', 'Carga de Teste ', 42, 'Q', 0),
+(106, 'Ep', 'Energia Potencial Elétrica', 44, 'EP', 0),
+(107, 'k', 'Constante Elétrica no Vácuo', 44, 'K', 0),
+(108, 'Q', 'Carga Geradora do Campo', 44, 'Q', 0),
+(109, 'q', 'Carga de Teste', 44, 'q', 0),
+(110, 'd', 'Distância entre as Cargas', 44, 'D', 0),
+(111, 'v', 'Potencial Elétrico', 45, 'V', 0),
+(112, 'Ep', 'Energia Potencial Elétrica', 45, 'EP', 0),
+(113, 'q', 'Carga de Teste', 45, 'Q', 0),
+(114, 'Ta,b', 'Trabalho entre a e b', 47, 'TAB', 0),
+(115, 'q', 'Carga de Teste', 47, 'Q', 0),
+(116, 'Va', 'Potencial Elétrico em a', 47, 'VA', 0),
+(117, 'Vb', 'Potencial Elétrico em b', 47, 'VB', 0),
+(118, 'U', 'Diferença de Potencial', 48, 'U', 0),
+(119, 'Vb', 'Potencial Elétrico em b', 48, 'VB', 0),
+(120, 'Va', 'Potencial Elétrico em a', 48, 'VA', 0);
 
 --
 -- Índices para tabelas despejadas
@@ -332,6 +335,448 @@ ALTER TABLE `subconteudo`
 --
 ALTER TABLE `variaveis`
   MODIFY `VariaveisID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+--
+-- Banco de dados: `phpmyadmin`
+--
+CREATE DATABASE IF NOT EXISTS `phpmyadmin` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `phpmyadmin`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__bookmark`
+--
+
+CREATE TABLE `pma__bookmark` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `dbase` varchar(255) NOT NULL DEFAULT '',
+  `user` varchar(255) NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `query` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__central_columns`
+--
+
+CREATE TABLE `pma__central_columns` (
+  `db_name` varchar(64) NOT NULL,
+  `col_name` varchar(64) NOT NULL,
+  `col_type` varchar(64) NOT NULL,
+  `col_length` text DEFAULT NULL,
+  `col_collation` varchar(64) NOT NULL,
+  `col_isNull` tinyint(1) NOT NULL,
+  `col_extra` varchar(255) DEFAULT '',
+  `col_default` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__column_info`
+--
+
+CREATE TABLE `pma__column_info` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `table_name` varchar(64) NOT NULL DEFAULT '',
+  `column_name` varchar(64) NOT NULL DEFAULT '',
+  `comment` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `mimetype` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `transformation` varchar(255) NOT NULL DEFAULT '',
+  `transformation_options` varchar(255) NOT NULL DEFAULT '',
+  `input_transformation` varchar(255) NOT NULL DEFAULT '',
+  `input_transformation_options` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__designer_settings`
+--
+
+CREATE TABLE `pma__designer_settings` (
+  `username` varchar(64) NOT NULL,
+  `settings_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__export_templates`
+--
+
+CREATE TABLE `pma__export_templates` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) NOT NULL,
+  `export_type` varchar(10) NOT NULL,
+  `template_name` varchar(64) NOT NULL,
+  `template_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__favorite`
+--
+
+CREATE TABLE `pma__favorite` (
+  `username` varchar(64) NOT NULL,
+  `tables` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__history`
+--
+
+CREATE TABLE `pma__history` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(64) NOT NULL DEFAULT '',
+  `db` varchar(64) NOT NULL DEFAULT '',
+  `table` varchar(64) NOT NULL DEFAULT '',
+  `timevalue` timestamp NOT NULL DEFAULT current_timestamp(),
+  `sqlquery` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__navigationhiding`
+--
+
+CREATE TABLE `pma__navigationhiding` (
+  `username` varchar(64) NOT NULL,
+  `item_name` varchar(64) NOT NULL,
+  `item_type` varchar(64) NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__pdf_pages`
+--
+
+CREATE TABLE `pma__pdf_pages` (
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `page_nr` int(10) UNSIGNED NOT NULL,
+  `page_descr` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__recent`
+--
+
+CREATE TABLE `pma__recent` (
+  `username` varchar(64) NOT NULL,
+  `tables` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__relation`
+--
+
+CREATE TABLE `pma__relation` (
+  `master_db` varchar(64) NOT NULL DEFAULT '',
+  `master_table` varchar(64) NOT NULL DEFAULT '',
+  `master_field` varchar(64) NOT NULL DEFAULT '',
+  `foreign_db` varchar(64) NOT NULL DEFAULT '',
+  `foreign_table` varchar(64) NOT NULL DEFAULT '',
+  `foreign_field` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__savedsearches`
+--
+
+CREATE TABLE `pma__savedsearches` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) NOT NULL DEFAULT '',
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `search_name` varchar(64) NOT NULL DEFAULT '',
+  `search_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__table_coords`
+--
+
+CREATE TABLE `pma__table_coords` (
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `table_name` varchar(64) NOT NULL DEFAULT '',
+  `pdf_page_number` int(11) NOT NULL DEFAULT 0,
+  `x` float UNSIGNED NOT NULL DEFAULT 0,
+  `y` float UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__table_info`
+--
+
+CREATE TABLE `pma__table_info` (
+  `db_name` varchar(64) NOT NULL DEFAULT '',
+  `table_name` varchar(64) NOT NULL DEFAULT '',
+  `display_field` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__table_uiprefs`
+--
+
+CREATE TABLE `pma__table_uiprefs` (
+  `username` varchar(64) NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL,
+  `prefs` text NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__tracking`
+--
+
+CREATE TABLE `pma__tracking` (
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL,
+  `version` int(10) UNSIGNED NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `schema_snapshot` text NOT NULL,
+  `schema_sql` text DEFAULT NULL,
+  `data_sql` longtext DEFAULT NULL,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') DEFAULT NULL,
+  `tracking_active` int(1) UNSIGNED NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__userconfig`
+--
+
+CREATE TABLE `pma__userconfig` (
+  `username` varchar(64) NOT NULL,
+  `timevalue` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `config_data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
+
+--
+-- Despejando dados para a tabela `pma__userconfig`
+--
+
+INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
+('root', '2023-11-23 12:25:49', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"pt_BR\"}');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__usergroups`
+--
+
+CREATE TABLE `pma__usergroups` (
+  `usergroup` varchar(64) NOT NULL,
+  `tab` varchar(64) NOT NULL,
+  `allowed` enum('Y','N') NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pma__users`
+--
+
+CREATE TABLE `pma__users` (
+  `username` varchar(64) NOT NULL,
+  `usergroup` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices de tabela `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `pma__central_columns`
+--
+ALTER TABLE `pma__central_columns`
+  ADD PRIMARY KEY (`db_name`,`col_name`);
+
+--
+-- Índices de tabela `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`);
+
+--
+-- Índices de tabela `pma__designer_settings`
+--
+ALTER TABLE `pma__designer_settings`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Índices de tabela `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`);
+
+--
+-- Índices de tabela `pma__favorite`
+--
+ALTER TABLE `pma__favorite`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Índices de tabela `pma__history`
+--
+ALTER TABLE `pma__history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`,`db`,`table`,`timevalue`);
+
+--
+-- Índices de tabela `pma__navigationhiding`
+--
+ALTER TABLE `pma__navigationhiding`
+  ADD PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`);
+
+--
+-- Índices de tabela `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  ADD PRIMARY KEY (`page_nr`),
+  ADD KEY `db_name` (`db_name`);
+
+--
+-- Índices de tabela `pma__recent`
+--
+ALTER TABLE `pma__recent`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Índices de tabela `pma__relation`
+--
+ALTER TABLE `pma__relation`
+  ADD PRIMARY KEY (`master_db`,`master_table`,`master_field`),
+  ADD KEY `foreign_field` (`foreign_db`,`foreign_table`);
+
+--
+-- Índices de tabela `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`);
+
+--
+-- Índices de tabela `pma__table_coords`
+--
+ALTER TABLE `pma__table_coords`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`);
+
+--
+-- Índices de tabela `pma__table_info`
+--
+ALTER TABLE `pma__table_info`
+  ADD PRIMARY KEY (`db_name`,`table_name`);
+
+--
+-- Índices de tabela `pma__table_uiprefs`
+--
+ALTER TABLE `pma__table_uiprefs`
+  ADD PRIMARY KEY (`username`,`db_name`,`table_name`);
+
+--
+-- Índices de tabela `pma__tracking`
+--
+ALTER TABLE `pma__tracking`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
+
+--
+-- Índices de tabela `pma__userconfig`
+--
+ALTER TABLE `pma__userconfig`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Índices de tabela `pma__usergroups`
+--
+ALTER TABLE `pma__usergroups`
+  ADD PRIMARY KEY (`usergroup`,`tab`,`allowed`);
+
+--
+-- Índices de tabela `pma__users`
+--
+ALTER TABLE `pma__users`
+  ADD PRIMARY KEY (`username`,`usergroup`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pma__history`
+--
+ALTER TABLE `pma__history`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  MODIFY `page_nr` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- Banco de dados: `test`
+--
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `test`;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

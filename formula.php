@@ -8,7 +8,7 @@ $formulas = $_GET['formulas'];
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <mzeta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/formulas.css">
     <link rel="shortcut icon" href="img/logo_resized.png" type="image/x-icon">
@@ -30,37 +30,30 @@ $formulas = $_GET['formulas'];
 <div class="wrapper-calc">
     <div class="container">
       <div class="retangulo">
+      
       <?php
       // consulta dos conteudos
       $sql = "SELECT * FROM conteudo WHERE ConteudoID =".$conteudo;
       $resultado = mysqli_query($conexao, $sql);
       $dados = mysqli_fetch_array($resultado, MYSQLI_ASSOC);
       ?>
-      <h2 id="cinematica"><?php echo $dados['Nome'];?></h2>
-      <p id="conc"><?php echo $dados['Conceito'];?></p>
-      
-      <h2>Subconteúdos:</h2>
-      <ul>
-        <li id="sim"><a href="" class="simm">Velocidade</a></li>
-        <li id="sim"><a href="" class="simm">Movimento Uniforme</a></li>
-        <li id="sim"><a href="" class="simm">Movimento Uniformemente Variado</a></li>
-        <li id="sim"><a href="" class="simm">Movimento Vertical</a></li>
-      </ul>
-      
+      <h2><?php echo $dados['Nome'];?></h2>
+      <p><?php echo $dados['Conceito'];?></p>
+
 </div>
         <div id="calc">
     <div id="calc">
       <a id="titulo" href="http://">Calculadora</a>
 
-      <i id="menu" class="material-icons" onclick="clickMenu()">menu<p id="titulo"></p></i>
+      <i id="menu" class="material-icons" onclick="clickMenu()">menu</i>
       <menu id="itens">
         <ul>
-            <li class="icone" id="padrao"><a href="./index.html" class="nao">Padrão</a></li>
-            <li class="icone" id="cine"><a href="http://localhost/2023-2MB-educom-G05/formula.php?conteudo=3&formulas=7" class="nao">Cinemática</a></li>
-            <li class="icone" id="termo"><a href="#" class="nao">Termometria</a></li>
-            <li class="icone" id="optica"><a href="#" class="nao">Óptica</a></li>
-            <li class="icone" id="acustica"><a href="#" class="nao">Acústica</a></li>
-            <li class="icone" id="eletro"><a href="#" class="nao">Eletrostática</a></li>
+            <li class="icone" id="padrao"><a href="./index.html">Padrão</a></li>
+            <li class="icone" id="cine"><a href="http://localhost/2023-2MB-educom-G05/formula.php?conteudo=3&formulas=7">Cinemática</a></li>
+            <li class="icone" id="termo"><a href="#">Termometria</a></li>
+            <li class="icone" id="optica"><a href="#">Óptica</a></li>
+            <li class="icone" id="acustica"><a href="#">Acústica</a></li>
+            <li class="icone" id="eletro"><a href="#">Eletrostática</a></li>
         </ul>
     </menu>
 
@@ -142,7 +135,7 @@ $formulas = $_GET['formulas'];
           } 
         }
         ?>
-         
+        
         </div>
     </div>
 </div>
