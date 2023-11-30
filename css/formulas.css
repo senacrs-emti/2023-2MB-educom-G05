@@ -14,6 +14,16 @@
 p {
     color: white;
 }
+#conc{
+  color: black;
+  margin-left: 0.8em;
+  margin-bottom: 3em;
+}
+#varia{
+  color: black;
+  margin-top: 0.4em;
+  margin-left: 5em;
+}
 header{
     width: 100%;
     background: black;
@@ -29,6 +39,13 @@ a {
     text-decoration: none;
     font-size: 40px;
     color: white;
+}
+#titulo{
+  margin-top: 0.25em;
+    margin-left: 0.4em;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #666;
 }
 .links{
     color: white;
@@ -133,7 +150,7 @@ body{
   background-color: #3a91d8;
 }
 
-/*CSS DO MENU*/
+/* CSS DO MENU */
 
 #menu{
   width: 23px;
@@ -157,7 +174,8 @@ body{
   width: 300px;
   cursor: pointer;
   position: absolute;
-  margin-top: 60px;
+  margin-top: 57px;
+  margin-left: 2px;
   background-color: black;
 } 
 
@@ -173,4 +191,45 @@ body{
 #itens li ul li:nth-child(-n+3) {
   display: none;
 }
+h2{
+  margin-top: 20px;
+  margin-bottom: 13px ;
+  margin-left: 3.2em;
+}
+#cinematica{
+  margin-left: 4.5em;
+  margin-top: 20px;
+}
+#retangulo{
+  margin-top: 0.5em;
+  margin-left: 6em;
+  border-radius: 5px;
+  border-color: white;
+}
 
+/*CSS LISTA DO RETÂNGULO*/
+.simm{
+  color: #000;
+  font-size: 20px;
+  margin-left: 15px;
+}
+ 
+.simm:hover{
+  background-color: gray;
+}
+ 
+#sim{
+  margin-top: 2px;
+  list-style-type: none;
+ 
+}
+
+.nao{
+  color: black;
+  background-color: white;
+  font-size: 20px;
+}
+
+.nao:hover{
+  background-color: gray;
+}
