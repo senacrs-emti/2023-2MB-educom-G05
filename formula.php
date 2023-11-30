@@ -8,7 +8,7 @@ $formulas = $_GET['formulas'];
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <mzeta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/formulas.css">
     <link rel="shortcut icon" href="img/logo_resized.png" type="image/x-icon">
@@ -30,6 +30,7 @@ $formulas = $_GET['formulas'];
 <div class="wrapper-calc">
     <div class="container">
       <div class="retangulo">
+      
       <?php
       // consulta dos conteudos
       $sql = "SELECT * FROM conteudo WHERE ConteudoID =".$conteudo;
@@ -39,20 +40,49 @@ $formulas = $_GET['formulas'];
       <h2><?php echo $dados['Nome'];?></h2>
       <p><?php echo $dados['Conceito'];?></p>
 
+      <?php
+      // consulta dos conteudos
+        $sql = "SELECT
+                f.*
+                FROM formulas AS f
+                INNER JOIN subconteudo AS s
+                ON f.SubConteudoID = s.SubConteudoID
+                WHERE s.ConteudoID = ".$conteudo;
+      ?>
+      <h3>Formulas</h3>
+      <ul>
+        <?php
+        $resultado = mysqli_query($conexao, $sql);
+        while ($value = mysqli_fetch_array($resultado, MYSQLI_ASSOC)) {   
+        ?>
+          <li><a href="./formula.php?conteudo=<?php echo $conteudo;?>&formulas=<?php echo $value['FormulaID'];?>"><?php echo $value['Nome'];?></a></li>
+        <?php
+        } 
+        ?>
+      </ul>
+
 </div>
         <div id="calc">
     <div id="calc">
       <h3>Calculadora</h3>
 
       <i id="menu" class="material-icons" onclick="clickMenu()">menu</i>
-      <menu id="itens">
+      <menu id="itens"> 
         <ul>
             <li class="icone" id="padrao"><a href="./index.html">Padrão</a></li>
-            <li class="icone" id="cine"><a href="http://localhost/2023-2MB-educom-G05/formula.php?conteudo=3&formulas=7">Cinemática</a></li>
-            <li class="icone" id="termo"><a href="#">Termometria</a></li>
-            <li class="icone" id="optica"><a href="#">Óptica</a></li>
-            <li class="icone" id="acustica"><a href="#">Acústica</a></li>
-            <li class="icone" id="eletro"><a href="#">Eletrostática</a></li>
+            <?php
+             $sql = "SELECT c.Nome, c.ConteudoID,f.FormulaID FROM conteudo AS c 
+             INNER JOIN subconteudo AS sc ON c.ConteudoID = sc.ConteudoID 
+             INNER JOIN formulas AS f ON sc.SubConteudoID = f.SubConteudoID 
+             INNER JOIN variaveis AS v ON f.FormulaID = v.FormulaID 
+             GROUP BY c.Nome;";
+              $resultado = mysqli_query($conexao, $sql);
+              while ($value = mysqli_fetch_array($resultado, MYSQLI_ASSOC)) {   
+              ?>
+                <li  class="icone" ><a href="./formula.php?conteudo=<?php echo $value['ConteudoID'];?>&formulas=<?php echo $value['FormulaID'];?>"><?php echo $value['Nome'];?></a></li>
+              <?php
+              } 
+              ?>
         </ul>
     </menu>
 
@@ -134,7 +164,7 @@ $formulas = $_GET['formulas'];
           } 
         }
         ?>
-         
+        
         </div>
     </div>
 </div>
