@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/11/2023 às 13:25
+-- Tempo de geração: 30/11/2023 às 03:28
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -63,41 +63,41 @@ CREATE TABLE `formulas` (
 --
 
 INSERT INTO `formulas` (`FormulaID`, `FormulaComputacional`, `Nome`, `Estrutura`, `SubConteudoID`) VALUES
-(7, 'VM = D / T', 'Velocidade Média', 'Vm = ∆d ÷ ∆t', 3),
-(8, 'P = PI + V * T', 'Função Horária do Deslocamento', 'S = So + V * ∆t', 4),
-(9, 'AM = V / T', 'Aceleração Média', 'Am = ∆v ÷ ∆t', 5),
-(10, 'V = VI + A * T', 'Função Horária da Velocidade', 'V = Vo + A x T', 5),
-(11, 'P = PI + VI * T + 1/2 * A * T^2 ', 'Função horária da posição em função do tempo', 'S = So + Vo x T + 1 ÷ 2 x A x T²', 5),
-(12, 'V^2 = VI^2 + 2 * A * D', 'Equação de Torricelli', 'V² = Vo² + 2 x A x ∆d', 5),
-(13, 'V = VI ± G * T', 'Função Horária da Velocidade no Movimento Vertical', 'V = Vo ± G x T', 6),
-(14, 'H = HI + VI * T ± 1/2 * G * T^2 * VI', 'Função horária da posição em função do tempo no movimento vertical', 'H = Ho + Vo x T ± 1 ÷ 2 x G x T² x Vo', 6),
-(15, 'V^2 = VI^2 ± 2 * G * H', 'Equação de Torricelli no movimento vertical', 'V² = Vo²  ± 2 x G x ∆h', 6),
-(19, '(C * 9 / 5) + 32', 'Conversão Celcius para  Fahrenheit', '(θ℃ x 9 ÷ 5) + 32', 9),
-(20, '(F - 32) * 5 / 9', 'Conversão Fahrenheit para Celsius', '(θ℉ - 32) x 5 ÷ 9', 9),
-(21, 'C + 273', 'Conversão Celsius para Kelvin', 'θc + 273', 9),
-(22, 'T - 273', 'Conversão Kelvin para Celsius', 'θt - 273', 9),
-(23, 'I = R', 'Lei da Refração', 'i = r', 10),
-(24, 'N = 360 / A - 1', 'Associação de espelhos planos', 'n = 360° ÷ a° - 1', 11),
-(25, '1/F = 1 / DI + 1 / DO', 'Equação de Gauss', '1 ÷ f = 1 ÷ Di + 1 ÷ Do', 11),
-(26, 'NM = CL / VL ', 'Índice de refração absoluto em um meio', 'Nm = C / Vm', 12),
-(27, 'N1 * sen(i) = N2 sen(r) ', 'Lei de Snell-Descartes', 'N1 x sen(i) = N2 x sen(r)', 12),
-(28, 'N2,1 = N2 / N1 = sen(i) / sen(r) = V1 / V2 = CO1 / CO2', 'Índice relativo de refração entre dois meios', 'N2,1 = N2 ÷ N1 = sen(i) ÷ sen(r) = V1 ÷ V2 = ⁁1 ÷ ⁁2', 12),
-(29, 'V = sqrt(K*T)', 'Velocidade de propagação', 'V = √k*T', 13),
-(30, 'V1² / T1 = V2² / T2', 'Velocidade de propagação em um mesmo gás com diferentes temperaturas', 'V1² ÷ T1 = V2² ÷ T2 ', 13),
-(31, 'I = F1 / F2', 'Intervalo entre dois sons', 'i = f1 / f2', 14),
-(32, 'I = E / A * T', 'Intensidade Sonora', 'I = E / A * ∆t', 15),
-(33, 'β = 10log * I/IO', 'Nível Sonoro', 'β = 10log x I ÷ Io', 15),
-(34, 'F = N * V / 2L', 'Tubos abertos', 'f = n x v ÷ 2l', 16),
-(35, 'F = I * V / 4l', 'Tubos fechados', 'f = i x v ÷ 4l', 16),
-(36, 'FOB = (V ± VOB /  V ± VF) * FF', 'Frequência sob efeito Doppler', 'Fob = (v ± Vob ÷ v ± Vf) x Ff', 17),
-(37, 'E = 1,6 * 10^-19', 'Carga elétrica elementar', 'e = 1,6 x 10⁻¹⁹', 18),
-(38, 'Q = N * E', 'Carga elétrica', 'Q = n x e', 18),
-(40, 'F = K * Q1 * Q2 / D²', 'Lei de Coulomb', 'F = k x Q1 x Q2 ÷ d²', 20),
-(42, 'E = F / Q', 'Intensidade do campo elétrico', 'E = F ÷ q', 21),
-(44, 'EP = K * Q * q / D ', 'Energia pontecial elétrica', 'Ep = k x Q x q ÷ d', 22),
-(45, 'V = EP / Q', 'Potencial elétrico', 'v = Ep ÷ q', 22),
-(47, 'TAB = Q * (VA - VB)', 'Trabalho de uma força elétrica', 'Ta,b = q x (Va - Vb)', 22),
-(48, 'U = VB - VA', 'Diferença de potencial', 'U = Vb - Va', 22);
+(7, 'Vm = ∆d / ∆t', 'Velocidade Média', 'Vm = ∆d ÷ ∆t', 3),
+(8, 'S = So + V * ∆t', 'Função Horária do Deslocamento', 'S = So + V x ∆t', 4),
+(9, 'Am = ∆v / ∆t', 'Aceleração Média', 'Am = ∆v ÷ ∆t', 5),
+(10, 'V = Vo + A * T', 'Função Horária da Velocidade', 'V = Vo + A x T', 5),
+(11, 'S = So + Vo * T + 1 / 2 * A * T^2', 'Função horária da posição em função do tempo', 'S = So + Vo x T + 1 ÷ 2 x A x T²', 5),
+(12, 'V² = Vo² + 2 * A * ∆d', 'Equação de Torricelli', 'V² = Vo² + 2 x A x ∆d', 5),
+(13, 'V = Vo ± G * T', 'Função Horária da Velocidade no Movimento Vertical', 'V = Vo ± G x T', 6),
+(14, 'H = Ho + Vo * T ± 1 / 2 * G * T^2 * Vo', 'Função horária da posição em função do tempo no movimento vertical', 'H = Ho + Vo x T ± 1 ÷ 2 x G x T² x Vo', 6),
+(15, 'V^2 = Vo^2  ± 2 * G * ∆h', 'Equação de Torricelli no movimento vertical', 'V² = Vo²  ± 2 x G x ∆h', 6),
+(19, '(θ℃ * 9 / 5) + 32', 'Conversão Celcius para  Fahrenheit', '(θ℃ x 9 ÷ 5) + 32', 9),
+(20, '(θ℉ - 32) * 5 / 9', 'Conversão Fahrenheit para Celsius', '(θ℉ - 32) x 5 ÷ 9', 9),
+(21, 'θc + 273', 'Conversão Celsius para Kelvin', 'θc + 273', 9),
+(22, 'θt - 273', 'Conversão Kelvin para Celsius', 'θt - 273', 9),
+(23, 'i = r', 'Lei da Refração', 'i = r', 10),
+(24, 'n = 360° / a° - 1', 'Associação de espelhos planos', 'n = 360° ÷ a° - 1', 11),
+(25, '1 / f = 1 / Di + 1 / Do', 'Equação de Gauss', '1 ÷ f = 1 ÷ Di + 1 ÷ Do', 11),
+(26, 'Nm = C / Vm', 'Índice de refração absoluto em um meio', 'Nm = C ÷ Vm', 12),
+(27, 'N1 * sen(i) = N2 * sen(r)', 'Lei de Snell-Descartes', 'N1 x sen(i) = N2 x sen(r)', 12),
+(28, 'N2,1 = N2 / N1 = sen(i) / sen(r) = V1 / V2 = ⁁1 ÷ ⁁2', 'Índice relativo de refração entre dois meios', 'N2,1 = N2 ÷ N1 = sen(i) ÷ sen(r) = V1 ÷ V2 = ⁁1 ÷ ⁁2', 12),
+(29, 'V = sqrt(k * T)', 'Velocidade de propagação', 'V = √k * T', 13),
+(30, 'V1^2 / T1 = V2^2 / T2 ', 'Velocidade de propagação em um mesmo gás com diferentes temperaturas', 'V1² ÷ T1 = V2² ÷ T2 ', 13),
+(31, 'i = f1 / f2', 'Intervalo entre dois sons', 'i = f1 ÷ f2', 14),
+(32, 'I = E / A * ∆t', 'Intensidade Sonora', 'I = E ÷ A x ∆t', 15),
+(33, 'β = 10log * I / Io', 'Nível Sonoro', 'β = 10log x I ÷ Io', 15),
+(34, 'f = n * v / 2l', 'Tubos abertos', 'f = n x v ÷ 2l', 16),
+(35, 'f = i * v / 4l', 'Tubos fechados', 'f = i x v ÷ 4l', 16),
+(36, 'Fob = (v ± Vob / v ± Vf) * Ff', 'Frequência sob efeito Doppler', 'Fob = (v ± Vob ÷ v ± Vf) x Ff', 17),
+(37, 'e = 1,6 x 10^(- 19)', 'Carga elétrica elementar', 'e = 1,6 x 10⁻¹⁹', 18),
+(38, 'Q = n * e', 'Carga elétrica', 'Q = n x e', 18),
+(40, 'F = k * Q1 * Q2 / d^2', 'Lei de Coulomb', 'F = k x Q1 x Q2 ÷ d²', 20),
+(42, 'E = F / q', 'Intensidade do campo elétrico', 'E = F ÷ q', 21),
+(44, 'Ep = k * Q * q / d', 'Energia pontecial elétrica', 'Ep = k x Q x q ÷ d', 22),
+(45, 'v = Ep / q', 'Potencial elétrico', 'v = Ep ÷ q', 22),
+(47, 'Ta,b = q * (Va - Vb)', 'Trabalho de uma força elétrica', 'Ta,b = q x (Va - Vb)', 22),
+(48, 'U = Vb - Va', 'Diferença de potencial', 'U = Vb - Va', 22);
 
 -- --------------------------------------------------------
 
