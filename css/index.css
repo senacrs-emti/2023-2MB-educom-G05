@@ -151,26 +151,6 @@ body{
   background-color: gray;
 }
 
-.icone#cine:hover{
-  background-color: gray;
-}
-
-.icone#termo:hover{
-  background-color: gray;
-}
-
-.icone#optica:hover{
-  background-color: gray;
-}
-
-.icone#acustica:hover{
-  background-color: gray;
-}
-
-.icone#eletro:hover{
-  background-color: gray;
-}
-
 #itens{
   display: none;
   width: 300px;

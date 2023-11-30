@@ -12,6 +12,7 @@ $formulas = $_GET['formulas'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/formulas.css">
     <link rel="shortcut icon" href="img/logo_resized.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Fórmulas</title>  
 </head>
 <body>
@@ -42,6 +43,29 @@ $formulas = $_GET['formulas'];
         <div id="calc">
     <div id="calc">
       <h3>Calculadora</h3>
+
+      <i id="menu" class="material-icons" onclick="clickMenu()">menu</i>
+      <menu id="itens">
+        <ul>
+            <li class="icone" id="padrao"><a href="./index.html">Padrão</a></li>
+            <li class="icone" id="cine"><a href="http://localhost/2023-2MB-educom-G05/formula.php?conteudo=3&formulas=7">Cinemática</a></li>
+            <li class="icone" id="termo"><a href="#">Termometria</a></li>
+            <li class="icone" id="optica"><a href="#">Óptica</a></li>
+            <li class="icone" id="acustica"><a href="#">Acústica</a></li>
+            <li class="icone" id="eletro"><a href="#">Eletrostática</a></li>
+        </ul>
+    </menu>
+
+    <script>
+        function clickMenu(){
+            if(itens.style.display == 'block'){
+                itens.style.display = 'none'
+            } else {
+                itens.style.display = 'block'
+            }
+        }
+    </script>
+
       <div id="operations">
         <?php
         // consulta dos conteudos
@@ -80,6 +104,7 @@ $formulas = $_GET['formulas'];
   </body>
 </html>
         </div>
+        
     <div class="retangulo"> 
     <?php
     $sql = "SELECT * FROM formulas WHERE FormulaID =".$formulas;
