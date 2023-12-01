@@ -40,7 +40,7 @@ $formulas = $_GET['formulas'];
        <h2 id="cinematica"><?php echo $dados['Nome'];?></h2>
       <p id="conc"><?php echo $dados['Conceito'];?></p>
       <h3>Subconteúdos</h3>
-      <ul>
+      <ul id="ul_simm">
             <?php
               $sql = "SELECT
                 f.*,s.ConteudoID
@@ -59,7 +59,7 @@ $formulas = $_GET['formulas'];
 </div>
         <div id="calc">
     <div id="calc">
-      <a id="titulo" href="http://">Calculadora</a>
+      <a id="titulo" href="javascript:void(0);">Calculadora</a>
 
       <i id="menu" class="material-icons" onclick="clickMenu()">menu</i>
       <menu id="itens">
@@ -153,7 +153,7 @@ $formulas = $_GET['formulas'];
           <?php 
           if ($value['Resultado'] == 0 ) {
           ?> 
-            <input type="number" id ="<?php echo $value['Variavel']; ?>" class ="Variaveis"> 
+            <input type="number" id="<?php echo $value['Variavel']; ?>" class ="Variaveis"> 
           <?php } else {
             
           } 

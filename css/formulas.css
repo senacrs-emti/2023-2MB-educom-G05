@@ -16,7 +16,8 @@ p {
 }
 #conc{
   color: black;
-  margin-left: 0.8em;
+  margin-left: 2em;
+  margin-right: 20px;
   margin-bottom: 3em;
 }
 #varia{
@@ -98,6 +99,10 @@ body{
   display: flex;
   flex-direction: column;
 }
+h3{
+  margin-left: 5.6em;
+}
+
 #calc h3 {
     margin-top: 0.25em;
     margin-left: 0.4em;
@@ -196,7 +201,7 @@ h2{
   margin-bottom: 13px ;
   margin-left: 3.2em;
 }
-#cinematica{
+.Variaveis{
   margin-left: 4.5em;
   margin-top: 20px;
 }
@@ -217,11 +222,14 @@ h2{
 .simm:hover{
   background-color: gray;
 }
+#ul_sim{
+  margin-left: 5%;
+  width: 90%;
+}
  
 #sim{
-  margin-top: 2px;
+  margin-top: 8px;
   list-style-type: none;
- 
 }
 
 .nao{

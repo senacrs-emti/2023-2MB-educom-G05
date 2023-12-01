@@ -9,7 +9,7 @@ function calcula() {
     for (let i = 0; i < variaveis.length; i++) {
         console.log(variaveis[i].value); 
         console.log(variaveis[i].id);
-        formula = formula.replace(variaveis[i].id, variaveis[i].value);
+        formula = formula.replaceAll(variaveis[i].id, variaveis[i].value);
     } 
     console.log(formula); 
     const dados = formula.split("=");

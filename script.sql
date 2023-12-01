@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30/11/2023 às 03:28
+-- Tempo de geração: 01/12/2023 às 12:56
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -66,24 +66,24 @@ CREATE TABLE `formulas` (
 
 INSERT INTO `formulas` (`FormulaID`, `FormulaComputacional`, `Nome`, `Estrutura`, `SubConteudoID`) VALUES
 (7, 'Vm = ∆d / ∆t', 'Velocidade Média', 'Vm = ∆d ÷ ∆t', 3),
-(8, 'S = So + V * ∆t', 'Função Horária do Deslocamento', 'S = So + V x ∆t', 4),
-(9, 'Am = ∆v / ∆t', 'Aceleração Média', 'Am = ∆v ÷ ∆t', 5),
-(10, 'V = Vo + A * T', 'Função Horária da Velocidade', 'V = Vo + A x T', 5),
-(11, 'S = So + Vo * T + 1 / 2 * A * T^2', 'Função horária da posição em função do tempo', 'S = So + Vo x T + 1 ÷ 2 x A x T²', 5),
-(12, 'V² = Vo² + 2 * A * ∆d', 'Equação de Torricelli', 'V² = Vo² + 2 x A x ∆d', 5),
-(13, 'V = Vo ± G * T', 'Função Horária da Velocidade no Movimento Vertical', 'V = Vo ± G x T', 6),
-(14, 'H = Ho + Vo * T ± 1 / 2 * G * T^2 * Vo', 'Função horária da posição em função do tempo no movimento vertical', 'H = Ho + Vo x T ± 1 ÷ 2 x G x T² x Vo', 6),
-(15, 'V^2 = Vo^2  ± 2 * G * ∆h', 'Equação de Torricelli no movimento vertical', 'V² = Vo²  ± 2 x G x ∆h', 6),
+(8, 'S = So + V * ∆t', 'Função Horária da Posição do MRU', 'S = So + V x ∆t', 4),
+(9, 'am = ∆v / ∆t', 'Aceleração Média', 'am = ∆v ÷ ∆t', 5),
+(10, 'V = Vo + A * T', 'Função Horária da Velocidade', 'V = Vo + a x t', 5),
+(11, 'S = So + Vo * T +  (A * T^2) / 2', 'Função Horária da Posição do MRUV', 'S = So + Vo x t +  (a x t²) ÷ 2', 5),
+(12, 'V = (Vo^2 + 2 * a * ∆d)^0,5', 'Equação de Torricelli', 'V² = Vo² + 2 x a x ∆d', 5),
+(13, 'V = Vo + G * T', 'Função Horária da Velocidade no Movimento Vertical', 'V = Vo + g x t', 6),
+(14, 'H = Ho + Vo * T + (G * T^2) / 2', 'Função Horária da Posição no Movimento Vertical', 'h = ho + Vo x t + (g x t²) ÷ 2', 6),
+(15, 'V = (Vo^2  + 2 * G * ∆h)^0,5', 'Equação de Torricelli no Movimento Vertical', 'V² = Vo²  + 2 x g x ∆h', 6),
 (19, '(θ℃ * 9 / 5) + 32', 'Conversão Celcius para  Fahrenheit', '(θ℃ x 9 ÷ 5) + 32', 9),
 (20, '(θ℉ - 32) * 5 / 9', 'Conversão Fahrenheit para Celsius', '(θ℉ - 32) x 5 ÷ 9', 9),
 (21, 'θc + 273', 'Conversão Celsius para Kelvin', 'θc + 273', 9),
 (22, 'θt - 273', 'Conversão Kelvin para Celsius', 'θt - 273', 9),
 (23, 'i = r', 'Lei da Refração', 'i = r', 10),
-(24, 'n = 360° / a° - 1', 'Associação de espelhos planos', 'n = 360° ÷ a° - 1', 11),
+(24, 'n = 360 / a - 1', 'Associação de espelhos planos', 'n = 360° ÷ a° - 1', 11),
 (25, '1 / f = 1 / Di + 1 / Do', 'Equação de Gauss', '1 ÷ f = 1 ÷ Di + 1 ÷ Do', 11),
 (26, 'Nm = C / Vm', 'Índice de refração absoluto em um meio', 'Nm = C ÷ Vm', 12),
 (27, 'N1 * sen(i) = N2 * sen(r)', 'Lei de Snell-Descartes', 'N1 x sen(i) = N2 x sen(r)', 12),
-(28, 'N2,1 = N2 / N1 = sen(i) / sen(r) = V1 / V2 = ⁁1 ÷ ⁁2', 'Índice relativo de refração entre dois meios', 'N2,1 = N2 ÷ N1 = sen(i) ÷ sen(r) = V1 ÷ V2 = ⁁1 ÷ ⁁2', 12),
+(28, 'N2,1 = N2 / N1 = sen(i) / sen(r) = V1 / V2 = 1 ÷ 2', 'Índice relativo de refração entre dois meios', 'N2,1 = N2 ÷ N1 = sen(i) ÷ sen(r) = V1 ÷ V2 = 1 ÷ 2', 12),
 (29, 'V = sqrt(k * T)', 'Velocidade de propagação', 'V = √k * T', 13),
 (30, 'V1^2 / T1 = V2^2 / T2 ', 'Velocidade de propagação em um mesmo gás com diferentes temperaturas', 'V1² ÷ T1 = V2² ÷ T2 ', 13),
 (31, 'i = f1 / f2', 'Intervalo entre dois sons', 'i = f1 ÷ f2', 14),
@@ -154,6 +154,7 @@ CREATE TABLE `variaveis` (
 --
 -- Despejando dados para a tabela `variaveis`
 --
+
 INSERT INTO `variaveis` (`VariaveisID`, `Variavel`, `Conceito`, `FormulaID`, `Resultado`) VALUES
 (1, 'Vm', 'Velocidade Média', 7, 1),
 (2, '∆d', 'Distância Percorrida', 7, 0),
@@ -162,7 +163,7 @@ INSERT INTO `variaveis` (`VariaveisID`, `Variavel`, `Conceito`, `FormulaID`, `Re
 (5, 'So', 'Posição Inicial', 8, 0),
 (6, 'V', 'Velocidade', 8, 0),
 (7, '∆t', 'Intervalo Tempo', 8, 0),
-(8, 'Am', 'Aceleração Média', 9, 1),
+(8, 'am', 'Aceleração Média', 9, 1),
 (9, '∆v', 'Variação da Velocidade', 9, 0),
 (10, '∆t', 'Intervalo de Tempo', 9, 0),
 (11, 'V', 'Velocidade', 10, 1),
@@ -191,14 +192,14 @@ INSERT INTO `variaveis` (`VariaveisID`, `Variavel`, `Conceito`, `FormulaID`, `Re
 (34, 'Vo', 'Velocidade Inicial', 15, 0),
 (35, 'G', 'Gravidade', 15, 0),
 (36, '∆h', 'Variação de Altura', 15, 0),
-(37, 'θ℃ ', 'Grau Celsius', 19, 1),
-(38, 'θ℉', 'Grau Fahrenheit', 20, 1),
-(39, 'θc', 'Temperatura em Graus Celsius', 21, 1),
-(40, 'θt', 'Temperatura Absoluta em Kelvin', 22, 1),
-(41, ' i', 'Ângulo de Incidência', 23, 1),
+(37, 'θ℃ ', 'Grau Celsius', 19, 0),
+(38, 'θ℉', 'Grau Fahrenheit', 20, 0),
+(39, 'θc', 'Temperatura em Graus Celsius', 21, 0),
+(40, 'θt', 'Temperatura Absoluta em Kelvin', 22, 0),
+(41, ' i', 'Ângulo de Incidência', 23, 0),
 (42, 'r', 'Ângulo de Reflexo', 23, 0),
 (43, 'n', 'Número de Imagens', 24, 1),
-(44, 'a°', 'Ângulo de Abertura Entre os Espelhos', 24, 0),
+(44, 'a', 'Ângulo de Abertura Entre os Espelhos', 24, 0),
 (45, 'f', 'Distância Focal', 25, 1),
 (46, 'Di', 'Distância da Imagem', 25, 0),
 (47, 'Do', 'Distância do Objeto', 25, 0),
@@ -333,3 +334,4 @@ ALTER TABLE `subconteudo`
 --
 ALTER TABLE `variaveis`
   MODIFY `VariaveisID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+--
