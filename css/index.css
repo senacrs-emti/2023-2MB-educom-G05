@@ -27,6 +27,12 @@ nav{
 a { 
     color: inherit;
     text-decoration: none;
+    font-size: 28.17px;
+    color: black;
+}
+.os_bgl{
+  color: inherit;
+    text-decoration: none;
     font-size: 40px;
     color: white;
 }
@@ -86,7 +92,7 @@ body{
   margin-left: 0.4em;
   font-size: 1.5em;
   font-weight: 300;
-  color: #666;
+  color: #000;
 }
 
 #operations {
@@ -157,7 +163,10 @@ body{
   cursor: pointer;
   position: absolute;
   margin-top: 60px;
-  background-color: black;
+  background-color: white;
+  border: #1A4A5A solid  1.5px; 
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 } 
 
 #itens > ul{

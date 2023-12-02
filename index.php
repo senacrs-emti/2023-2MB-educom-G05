@@ -15,13 +15,13 @@ include_once 'conexao.php';
 <body>
 <header>
     <nav class="container">
-        <a href="./sobre_nos.html">Sobre nós</a>
+        <a class="os_bgl" href="">Sobre nós</a>
         <div id="logo">
             <a href="index.php">
                 <img src="img/logo.png" alt="logo" width="200px" height="100px">
             </a>
         </div>
-        <a href="./projeto.html">Projeto</a>
+        <a class="os_bgl" href="./projeto.html">Projeto</a>
     </nav>
 </header>
 <div class="wrapper-calc">

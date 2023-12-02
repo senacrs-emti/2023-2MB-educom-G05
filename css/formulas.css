@@ -38,15 +38,15 @@ nav{
 a { 
     color: inherit;
     text-decoration: none;
-    font-size: 40px;
-    color: white;
+    font-size: 28.17px;
+    color: black;
 }
 #titulo{
   margin-top: 0.25em;
     margin-left: 0.4em;
     font-size: 1.5em;
     font-weight: 300;
-    color: #666;
+    color: #000;
 }
 .links{
     color: white;
@@ -180,8 +180,10 @@ h3{
   cursor: pointer;
   position: absolute;
   margin-top: 57px;
-  margin-left: 2px;
-  background-color: black;
+  background-color: white;
+  border: #1A4A5A solid  1.5px; 
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 } 
 
 #itens > ul{

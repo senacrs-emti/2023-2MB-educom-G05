@@ -35,7 +35,7 @@ $formulas = $_GET['formulas'];
       // consulta dos conteudos
       $sql = "SELECT * FROM conteudo WHERE ConteudoID =".$conteudo;
       $resultado = mysqli_query($conexao, $sql);
-      $dados = mysqli_fetch_array($resultado, MYSQLI_ASSOC);
+      $dados = mysqli_fetch_array($resultado, MYSQLI_ASSOC);    
       ?>
        <h2 id="cinematica"><?php echo $dados['Nome'];?></h2>
       <p id="conc"><?php echo $dados['Conceito'];?></p>
