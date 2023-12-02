@@ -17,7 +17,7 @@ include_once 'conexao.php';
     <nav class="container">
         <a href="./sobre_nos.html">Sobre nós</a>
         <div id="logo">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="img/logo.png" alt="logo" width="200px" height="100px">
             </a>
         </div>
