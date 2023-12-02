@@ -18,7 +18,7 @@ p {
   color: black;
   margin-left: 2em;
   margin-right: 20px;
-  margin-bottom: 3em;
+  margin-bottom: 1.5em
 }
 #varia{
   color: black;
@@ -202,6 +202,8 @@ h2{
   margin-left: 3.2em;
 }
 .Variaveis{
+  border-radius: 5px;
+  border-color: white;
   margin-left: 6em;
   margin-top: 20px;
 }
@@ -213,22 +215,21 @@ h2{
 }
 
 /*CSS LISTA DO RETÂNGULO*/
+
 .simm{
   color: #000;
-  font-size: 20px;
-  margin-left: 15px;
+  font-size: 19.75px;
 }
  
 .simm:hover{
   background-color: gray;
 }
-#ul_sim{
-  margin-left: 20%;
+#ul_simm{ 
+  margin-left: 5%;
   width: 90%;
 }
- 
 #sim{
-  margin-top: 8px;
+  margin-top: 5px;
   list-style-type: none;
 }
 
